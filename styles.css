@@ -1,7 +1,13 @@
+:root {
+  --height: 0px;
+  --width: 0px;
+}
+
+
 .bar-chart {
   background: blue;
-  width: 700px;
-  height: 500px;
+  width: var(--width);
+  height: var(--height);
   display: table-cell;
   vertical-align: bottom;
 }
@@ -12,7 +18,7 @@
   height: 100%;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0px auto;
 }
 
 li {
