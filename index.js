@@ -5,18 +5,21 @@ const drawBarChart = function(data, options, element){
   root.style.setProperty('--width', `${options.width}px`);
 
   //Creating bars in bar chart from input data
+  //Setting heigh of bars inline based on data inputs
+  const maxHeight = options.height * 0.9;
+  const maxVal = Math.max(...data);
+  console.log(maxVal);
 
   for (let i = 0; i < data.length; i++) {
-    $('.bar-list').append(`<li>${data[i]}</li>`);
+    const barHeight = (data[i] * maxHeight) / maxVal;
+    console.log(barHeight);
+    $('.bar-list').append(`<li style="height: ${barHeight}px">${data[i]}</li>`);
   }
 
-  // Setting width and height of bars based on data inputs
+  // Setting width of bars based on data inputs
   const numBars = data.length;
-  // console.log(numBars);
   const barMargin = Math.floor(Number(options.width) / numBars) * 0.15;
-  console.log(barMargin);
   const barWidth = Math.floor(Number(options.width) / numBars) - barMargin;
-  console.log(barWidth);
   root.style.setProperty('--barWidth', `${barWidth}px`);
   root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
 
