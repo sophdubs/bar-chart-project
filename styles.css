@@ -1,6 +1,8 @@
 :root {
   --height: 0px;
   --width: 0px;
+  --barWidth: 20px;
+  --barMargin: 20px;
 }
 
 
@@ -17,17 +19,17 @@
   width: 100%;
   height: 100%;
   list-style-type: none;
-  margin: 0;
-  padding: 0px auto;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
 }
 
 li {
-  width: 100px;
+  width: var(--barWidth);
   height: 300px;
   background: red;
   float: left;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 var(--barMargin);
   display: table-cell;
   vertical-align: bottom;
 }

@@ -1,8 +1,8 @@
 let root = document.documentElement;
 const drawBarChart = function(data, options, element){
   // Setting width and height of bar chart based on passed in options.
-  root.style.setProperty('--height', options.height);
-  root.style.setProperty('--width', options.width);
+  root.style.setProperty('--height', `${options.height}px`);
+  root.style.setProperty('--width', `${options.width}px`);
 
   //Creating bars in bar chart from input data
 
@@ -10,14 +10,23 @@ const drawBarChart = function(data, options, element){
     $('.bar-list').append(`<li>${data[i]}</li>`);
   }
 
-  //Setting width and height of bars based on data inputs
+  // Setting width and height of bars based on data inputs
+  const numBars = data.length;
+  // console.log(numBars);
+  const barMargin = Math.floor(Number(options.width) / numBars) * 0.15;
+  console.log(barMargin);
+  const barWidth = Math.floor(Number(options.width) / numBars) - barMargin;
+  console.log(barWidth);
+  root.style.setProperty('--barWidth', `${barWidth}px`);
+  root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
+
 
 };
 
-const chartData = [1, 2, 3, 4];
+const chartData = [1, 2, 3, 4, 5, 6, 7];
 const chartOptions = {
-  height: '400px',
-  width: '600px'
+  height: '400',
+  width: '600'
 };
 const chartElement = $(".bar-chart");
 
