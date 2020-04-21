@@ -32,6 +32,15 @@ const drawBarChart = function(data, options, element){
     root.style.setProperty('--titleFontSize', options.titleFontSize);
   }
 
+  // Set chart axes {
+  if (options.yAxis) {
+    $('.y-axis').append(`<p>${options.yAxis}</p>`);
+  }
+  if(options.xAxis) {
+    $('.x-axis').append(`<p>${options.xAxis}</p>`);
+  }
+
+
   //Set labels
   // root.style.setProperty('--labelColour', options.labelColour);
 };
@@ -44,8 +53,9 @@ const chartOptions = {
   barColour: '#eb4034',
   title: 'This is the title',
   titleColour: '#eb4034',
-  titleFontSize: '40px'
-
+  titleFontSize: '40px',
+  xAxis: 'x axis label',
+  yAxis: 'y axis label'
 };
 const chartElement = $(".bar-chart");
 

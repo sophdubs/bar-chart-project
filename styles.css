@@ -9,9 +9,26 @@
   --titleFontSize: 12px;
 }
 
+.chart-section {
+  display: grid;
+  grid-template-areas: 'yAxis chart'
+                        'blank xAxis';
+}
+
 .bar-chart {
   width: var(--width);
   height: var(--height);
+  border-left: black solid 1px;
+  border-bottom: black solid 1px;
+  grid-area: chart;
+}
+
+.y-axis {
+  grid-area: yAxis;
+}
+
+.x-axis {
+  grid-area: xAxis;
 }
 
 .bar-list {
