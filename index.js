@@ -12,7 +12,7 @@ const drawBarChart = function(data, options, element){
 
   for (let i = 0; i < data.length; i++) {
     const barHeight = (data[i] * maxHeight) / maxVal;
-    $('.bar-list').append(`<div class="barDiv"><li style="height: ${barHeight}px"><p class="value">${data[i]}</p></li></div>`);
+    $('.bar-list').append(`<div class="barDiv"><li class="${options.valuePos}" style="height: ${barHeight}px"><p class="value">${data[i]}</p></li></div>`);
   }
 
   // Setting width of bars based on data inputs
