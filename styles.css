@@ -4,11 +4,11 @@
   --barWidth: 20px;
   --barMargin: 20px;
   --barColour: darkgrey;
+  --labelColour: black;
+  --titleColour: black;
 }
 
-
 .bar-chart {
-  /* background: blue; */
   width: var(--width);
   height: var(--height);
 }
@@ -58,6 +58,12 @@ li {
 .bottom {
   align-items: flex-end;
 }
+
+.title {
+  color: var(--titleColour);
+}
+
+
 
 
 

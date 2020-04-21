@@ -23,7 +23,16 @@ const drawBarChart = function(data, options, element){
   root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
 
   // Set colour of bars based on passed in options
-  root.style.setProperty('--barColour', options.barColour)
+  root.style.setProperty('--barColour', options.barColour);
+
+  //Set title
+  if (options.title) {
+    $('header').append(`<h1 class="title">${options.title}</h1>`);
+    root.style.setProperty('--titleColour', options.titleColour);
+  }
+
+  //Set labels
+  // root.style.setProperty('--labelColour', options.labelColour);
 };
 
 const chartData = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -31,7 +40,10 @@ const chartOptions = {
   height: '400',
   width: '600',
   valuePos: 'top',
-  barColour: '#eb4034'
+  barColour: '#eb4034',
+  title: 'This is the title',
+  titleColour: '#eb4034'
+
 };
 const chartElement = $(".bar-chart");
 
