@@ -29,6 +29,7 @@ const drawBarChart = function(data, options, element){
   if (options.title) {
     $('header').append(`<h1 class="title">${options.title}</h1>`);
     root.style.setProperty('--titleColour', options.titleColour);
+    root.style.setProperty('--titleFontSize', options.titleFontSize);
   }
 
   //Set labels
@@ -42,7 +43,8 @@ const chartOptions = {
   valuePos: 'top',
   barColour: '#eb4034',
   title: 'This is the title',
-  titleColour: '#eb4034'
+  titleColour: '#eb4034',
+  titleFontSize: '40px'
 
 };
 const chartElement = $(".bar-chart");
