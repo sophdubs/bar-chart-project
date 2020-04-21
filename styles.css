@@ -3,6 +3,7 @@
   --width: 0px;
   --barWidth: 20px;
   --barMargin: 20px;
+  --numRows: 1;
 }
 
 
@@ -22,14 +23,30 @@
   margin: 0px;
   padding: 0px;
   text-align: center;
+  position: relative;
+}
+
+.barDiv {
+  float: left;
+  display: table-cell;
+  position: relative;
+  height: var(--height);
+  display: flex;
 }
 
 li {
+  position: relative;
   width: var(--barWidth);
-  /* height: 300px; */
   background: red;
   float: left;
   margin: 0 var(--barMargin);
-  display: table-cell;
-  vertical-align: bottom;
+  align-self: flex-end;
 }
+
+.value {
+  color: green;
+}
+
+
+
+
