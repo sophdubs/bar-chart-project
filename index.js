@@ -17,10 +17,19 @@ const drawBarChart = function(data, options, element){
 
   // Setting width of bars based on data inputs
   const numBars = data.length;
-  const barMargin = Math.floor(Number(options.width) / numBars) * 0.20;
-  const barWidth = Math.floor(Number(options.width) / numBars) - barMargin;
-  root.style.setProperty('--barWidth', `${barWidth}px`);
-  root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
+  if (options.barSpacing) {
+    const space = Number(options.barSpacing.substring(0, options.barSpacing.length - 2));
+    const diff = options.width - (data.length * space);
+    const barMargin = space / 2;
+    const barWidth = diff / data.length;
+    root.style.setProperty('--barWidth', `${barWidth}px`);
+    root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
+  } else {
+    const barMargin = Math.floor(Number(options.width) / numBars) * 0.20;
+    const barWidth = Math.floor(Number(options.width) / numBars) - barMargin;
+    root.style.setProperty('--barWidth', `${barWidth}px`);
+    root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
+  }
 
   // Set colour of bars based on passed in options
   root.style.setProperty('--barColour', options.barColour);
@@ -50,6 +59,7 @@ const chartOptions = {
   height: '400',
   width: '600',
   valuePos: 'top',
+  barSpacing: '30px',
   barColour: '#eb4034',
   title: 'This is the title',
   titleColour: '#eb4034',

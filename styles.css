@@ -25,6 +25,9 @@
 
 .y-axis {
   grid-area: yAxis;
+  transform: rotate(270deg);
+  /* CHANGE THIS LATERRRRR */
+  height: 30px;
 }
 
 .x-axis {
