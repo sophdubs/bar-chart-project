@@ -17,17 +17,21 @@ const drawBarChart = function(data, options, element){
 
   // Setting width of bars based on data inputs
   const numBars = data.length;
-  const barMargin = Math.floor(Number(options.width) / numBars) * 0.15;
+  const barMargin = Math.floor(Number(options.width) / numBars) * 0.20;
   const barWidth = Math.floor(Number(options.width) / numBars) - barMargin;
   root.style.setProperty('--barWidth', `${barWidth}px`);
   root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
+
+  // Set colour of bars based on passed in options
+  root.style.setProperty('--barColour', options.barColour)
 };
 
-const chartData = [1, 2, 3, 4, 5, 6, 7];
+const chartData = [1, 2, 3, 4, 5, 6, 7, 8];
 const chartOptions = {
   height: '400',
   width: '600',
-  valuePos: 'top'
+  valuePos: 'top',
+  barColour: '#eb4034'
 };
 const chartElement = $(".bar-chart");
 

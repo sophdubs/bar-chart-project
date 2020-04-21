@@ -3,16 +3,14 @@
   --width: 0px;
   --barWidth: 20px;
   --barMargin: 20px;
-  --numRows: 1;
+  --barColour: darkgrey;
 }
 
 
 .bar-chart {
-  background: blue;
+  /* background: blue; */
   width: var(--width);
   height: var(--height);
-  display: table-cell;
-  vertical-align: bottom;
 }
 
 .bar-list {
@@ -37,7 +35,7 @@
 li {
   position: relative;
   width: var(--barWidth);
-  background: red;
+  background: var(--barColour);
   float: left;
   margin: 0 var(--barMargin);
   align-self: flex-end;
