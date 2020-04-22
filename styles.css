@@ -9,6 +9,8 @@
   --titleFontSize: 12px;
   --valueColour: black;
   --tickPixels: 0px;
+  --subtitleColour: black;
+  --subtitleFontSize: 10px;
 }
 
 .chart-section {
@@ -114,6 +116,11 @@
 .title {
   color: var(--titleColour);
   font-size: var(--titleFontSize);
+}
+
+.subtitle {
+  color: var(--subtitleColour);
+  font-size: var(--subtitleFontSize);
 }
 
 

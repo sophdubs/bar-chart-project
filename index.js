@@ -82,13 +82,23 @@ const addCustomBars = function(data, specs) {
 
 // If user provides a title, this function will add it to the page header displayed above the bar graph.
 // Title colour and font size is customized if the user provides desired specifications.
-const addCustomTitle = function(title, titleColour, titleFontSize) {
+const addCustomTitle = function(specs) {
+  const {title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize} = specs;
   if (title) {
     $('header').append(`<h1 class="title">${title}</h1>`);
     if (titleColour) {
       root.style.setProperty('--titleColour', titleColour);
     }
     if (titleFontSize) {
+      root.style.setProperty('--titleFontSize', titleFontSize);
+    }
+  }
+  if (subtitle) {
+    $('header').append(`<h2 class="subtitle">${subtitle}</h2>`);
+    if(subtitleColour) {
+      root.style.setProperty('--subtitleColour', subtitleColour);
+    }
+    if (subtitleFontSize) {
       root.style.setProperty('--titleFontSize', titleFontSize);
     }
   }
@@ -112,10 +122,9 @@ const customizeLabels = function(labelColour) {
 };
 
 
-
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, yAxis, xAxis, labelColour} = options;
+  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
   // Setting width and height of bar chart based on passed in options.
@@ -125,8 +134,8 @@ const drawBarChart = function(data, options, element){
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
   addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
-  //Sets title and title customizations if user provides title and custom colour and font.
-  addCustomTitle(title, titleColour, titleFontSize);
+  //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
+  addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
   // Adds bar chart axes if user provides them
   addCustomAxes(yAxis, xAxis);
   // label colour can be customized if user specifies desired colour
@@ -146,6 +155,9 @@ const chartOptions = {
   title: 'This is the title',
   titleColour: '#eb4034',
   titleFontSize: '40px',
+  subtitle: 'This is the subtitle',
+  subtitleColour: '#000000',
+  subtitleFontSize: '20px',
   xAxis: 'x axis label',
   yAxis: 'y axis label',
   labelColour: 'blue'
