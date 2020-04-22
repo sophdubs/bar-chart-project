@@ -46,49 +46,53 @@ const addCustomTicks = function(tickSpacing, maxHeight, height) {
   }
 };
 
+// Add bars to graph and customize them to user input. Bar width is id dependent on total amout of values passed in.
+// Customization include position of values within the bars, barColour, valueColour and spacing between bars
+const addCustomBars = function(data, specs) {
+  //Creating bars in bar chart from input data
+  //Setting height of bars inline based on data inputs
+  const {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour}  = specs;
+  for (let i = 0; i < data.length; i++) {
+    const barHeight = (data[i][1] * height) / maxHeight;
+    $('.bar-list').append(`<div class="barDiv"><li class=" bar ${valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
+  }
+  // Default Settings for bar spacing and width of bars if user did not specify
+  const numBars = data.length;
+  let barMargin = (Math.floor(Number(width) / numBars) * 0.20) / 2;
+  let barWidth = Math.floor(Number(width) / numBars) - (barMargin * 2);
+  // Override default settings if user provided barSpacing
+  if (barSpacing) {
+    const space = Number(barSpacing.substring(0, barSpacing.length - 2));
+    const diff = width - (numBars * space);
+    barMargin = space / 2;
+    barWidth = diff / numBars;
+  }
+  // Set bar spacing and bar width
+  root.style.setProperty('--barWidth', `${barWidth}px`);
+  root.style.setProperty('--barMargin', `${barMargin}px`);
+  // Set custom colour for bars and bar values if customization was provided
+  if (barColour) {
+    root.style.setProperty('--barColour', barColour);
+  }
+  if (valueColour) {
+    root.style.setProperty('--valueColour', valueColour);
+  }
+};
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing} = options;
+  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
-
-
-
   // Setting width and height of bar chart based on passed in options.
   generateBlankGraph(height, width);
   // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
   addCustomTicks(tickSpacing, maxHeight, height);
+  // Add bars to graph and customize them to user input
+  // Customization include position of values within the bars, barColour, valueColour and spacing between bars
+  addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
 
-  //Creating bars in bar chart from input data
-  //Setting heigh of bars inline based on data inputs
-  // const maxHeight = options.height * 0.9;
-  // const maxVal = findMax(data);
 
-  for (let i = 0; i < data.length; i++) {
-    const barHeight = (data[i][1] * height) / maxHeight;
-    $('.bar-list').append(`<div class="barDiv"><li class=" bar ${options.valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
-  }
-
-  // Setting width of bars based on data inputs
-  const numBars = data.length;
-  if (options.barSpacing) {
-    const space = Number(options.barSpacing.substring(0, options.barSpacing.length - 2));
-    const diff = options.width - (data.length * space);
-    const barMargin = space / 2;
-    const barWidth = diff / data.length;
-    root.style.setProperty('--barWidth', `${barWidth}px`);
-    root.style.setProperty('--barMargin', `${barMargin}px`);
-  } else {
-    const barMargin = Math.floor(Number(options.width) / numBars) * 0.20;
-    const barWidth = Math.floor(Number(options.width) / numBars) - barMargin;
-    root.style.setProperty('--barWidth', `${barWidth}px`);
-    root.style.setProperty('--barMargin', `${Math.floor(barMargin / 2)}px`);
-  }
-
-  // Set colour of bars based on passed in options
-  root.style.setProperty('--barColour', options.barColour);
-  root.style.setProperty('--valueColour', options.valueColour);
 
   //Set title
   if (options.title) {
@@ -124,7 +128,7 @@ const chartOptions = {
   titleColour: '#eb4034',
   titleFontSize: '40px',
   xAxis: 'x axis label',
-  yAxis: 'y axis label',
+  yAxis: 'y axis label'
 };
 const chartElement = $(".bar-chart");
 
