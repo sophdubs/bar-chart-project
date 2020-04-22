@@ -1,5 +1,6 @@
 let root = document.documentElement;
 
+//Helper function to determine the max value in the input dataset
 const findMaxValue = function(data) {
   let max = 0;
   for (let i = 0; i < data.length; i++) {
@@ -10,8 +11,15 @@ const findMaxValue = function(data) {
   return max;
 };
 
+//Helper function to determine the max value on the Y axis.
+//If user provided tick spacing, it will be the closest multiple of the provided tick spacing greater or euqal than the max val.
+//If no tick spacing is provided, the max value on the Y axis will be the Max value in the dataset.
 const findMaxHeight = function(maxValue, tickSpacing) {
-  return Math.ceil(maxValue / tickSpacing) * tickSpacing;
+  if (tickSpacing) {
+    return Math.ceil(maxValue / tickSpacing) * tickSpacing;
+  } else {
+    return maxValue;
+  }
 };
 
 const generateBlankGraph = function(height, width) {
@@ -86,6 +94,7 @@ const chartData = [['first', 1], ['second', 2], ['third', 3], ['fourth', 4], ['f
 const chartOptions = {
   height: '400',
   width: '600',
+  tickSpacing: '3',
   valuePos: 'top',
   valueColour: '#000000',
   barSpacing: '30px',
@@ -94,8 +103,7 @@ const chartOptions = {
   titleColour: '#eb4034',
   titleFontSize: '40px',
   xAxis: 'x axis label',
-  yAxis: 'y axis label',
-  tickSpacing: '3'
+  yAxis: 'y axis label'
 };
 const chartElement = $(".bar-chart");
 
