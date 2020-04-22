@@ -7,6 +7,7 @@
   --labelColour: black;
   --titleColour: black;
   --titleFontSize: 12px;
+  --valueColour: black;
 }
 
 .chart-section {
@@ -65,7 +66,12 @@ li {
 }
 
 .value {
-  color: green;
+  color: var(--valueColour);
+}
+
+.bar-label {
+  position: absolute;
+  bottom: -45px;
 }
 
 .top {
