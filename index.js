@@ -94,10 +94,22 @@ const addCustomTitle = function(title, titleColour, titleFontSize) {
   }
 };
 
+// If user provided x-axis and y-axis subtitles, they are added to the graph.
+const addCustomAxes = function(yAxis, xAxis) {
+  if (yAxis) {
+    $('.y-axis').append(`<p>${yAxis}</p>`);
+  }
+  if(xAxis) {
+    $('.x-axis').append(`<p>${xAxis}</p>`);
+  }
+};
+
+
+
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize} = options;
+  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, yAxis, xAxis} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
   // Setting width and height of bar chart based on passed in options.
@@ -109,17 +121,10 @@ const drawBarChart = function(data, options, element){
   addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
   //Sets title and title customizations if user provides title and custom colour and font.
   addCustomTitle(title, titleColour, titleFontSize);
-
-
-
-  // Set chart axes {
-  if (options.yAxis) {
-    $('.y-axis').append(`<p>${options.yAxis}</p>`);
-  }
-  if(options.xAxis) {
-    $('.x-axis').append(`<p>${options.xAxis}</p>`);
-  }
-
+  // Adds bar chart axes if user provides them
+  addCustomAxes(yAxis, xAxis);
+  // label colour can be customized if user specifies desired colour
+  // customizeLabels(labelColour);
 
   //Set labels
   // root.style.setProperty('--labelColour', options.labelColour);
