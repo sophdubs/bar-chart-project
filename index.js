@@ -1,4 +1,15 @@
 let root = document.documentElement;
+
+const findMax = function(data) {
+  let max = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i][1] > max) {
+      max = data[i][1];
+    }
+  }
+  return max;
+};
+
 const drawBarChart = function(data, options, element){
   // Setting width and height of bar chart based on passed in options.
   root.style.setProperty('--height', `${options.height}px`);
@@ -11,7 +22,7 @@ const drawBarChart = function(data, options, element){
 
   for (let i = 0; i < data.length; i++) {
     const barHeight = (data[i][1] * maxHeight) / maxVal;
-    $('.bar-list').append(`<div class="barDiv"><li class="${options.valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
+    $('.bar-list').append(`<div class="barDiv"><li class=" bar ${options.valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
   }
 
   // Setting width of bars based on data inputs
@@ -54,15 +65,6 @@ const drawBarChart = function(data, options, element){
   // root.style.setProperty('--labelColour', options.labelColour);
 };
 
-const findMax = function(data) {
-  let max = 0;
-  for (let i = 0; i < data.length; i++) {
-    if (data[i][1] > max) {
-      max = data[i][1];
-    }
-  }
-  return max;
-};
 
 const chartData = [['first', 1], ['second', 2], ['third', 3], ['fourth', 4], ['fifth', 5], ['sixth', 6], ['seventh', 7], ['eighth', 8]];
 const chartOptions = {

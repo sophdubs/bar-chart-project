@@ -11,9 +11,10 @@
 }
 
 .chart-section {
+  position: relative;
   display: grid;
-  grid-template-areas: 'yAxis chart'
-                        'blank xAxis';
+  grid-template-areas: 'yAxis ticks chart'
+                        'blank blank xAxis';
 }
 
 .bar-chart {
@@ -22,6 +23,24 @@
   border-left: black solid 1px;
   border-bottom: black solid 1px;
   grid-area: chart;
+  background: green;
+}
+
+.ticks {
+  grid-area: ticks;
+  background: pink;
+  list-style-type: none;
+  height: var(--height);
+  width: 20px;
+  position: absolute;
+  right: 0px;
+  margin: 0;
+
+}
+
+.tick {
+  border-top: solid black 1px;
+  height: 50px;
 }
 
 .y-axis {
@@ -29,10 +48,12 @@
   transform: rotate(270deg);
   /* CHANGE THIS LATERRRRR */
   height: 30px;
+  background: blue;
 }
 
 .x-axis {
   grid-area: xAxis;
+  background: yellow;
 }
 
 .bar-list {
@@ -54,7 +75,7 @@
   display: flex;
 }
 
-li {
+.bar {
   position: relative;
   width: var(--barWidth);
   background: var(--barColour);
@@ -69,6 +90,7 @@ li {
   color: var(--valueColour);
 }
 
+/* Change this to be a fraction/percentage of the graph height */
 .bar-label {
   position: absolute;
   bottom: -45px;
