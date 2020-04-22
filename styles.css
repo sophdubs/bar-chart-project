@@ -33,10 +33,10 @@ section {
 .chart-section {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 5fr 2fr;
+  grid-template-columns: 2fr 5fr 2fr;
   grid-template-rows: 5fr 1fr;
-  grid-template-areas: 'yAxis meh chart right'
-                        'blank blank xAxis bottomright';
+  grid-template-areas: 'yAxis chart right'
+                        'blank xAxis bottomright';
 }
 
 .bar-chart {
@@ -45,20 +45,19 @@ section {
   border-left: black solid 1px;
   border-bottom: black solid 1px;
   grid-area: chart;
-  background: green;
   position: relative;
+  margin: 0 auto;
 }
 
 .ticks {
   grid-area: ticks;
-  background: pink;
   list-style-type: none;
   height: var(--height);
   width: 7px;
   float:left;
   position: absolute;
   padding: 0;
-  left: -7px;
+  left: -8px;
   margin: 0;
 }
 
@@ -72,13 +71,16 @@ section {
   transform: rotate(270deg);
   /* CHANGE THIS LATERRRRR */
   height: 30px;
-  background: blue;
+  position: absolute;
+  right: -65px;
+  top: 45%;
 }
 
 .x-axis {
   grid-area: xAxis;
-  margin-top: 20px;
-  background: yellow;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .bar-list {
@@ -137,6 +139,7 @@ section {
 .title {
   color: var(--titleColour);
   font-size: var(--titleFontSize);
+  margin-bottom: 0;
 }
 
 .subtitle {
