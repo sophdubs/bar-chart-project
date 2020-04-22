@@ -1,6 +1,6 @@
 let root = document.documentElement;
 
-const findMax = function(data) {
+const findMaxValue = function(data) {
   let max = 0;
   for (let i = 0; i < data.length; i++) {
     if (data[i][1] > max) {
@@ -8,6 +8,10 @@ const findMax = function(data) {
     }
   }
   return max;
+};
+
+const findMaxHeight = function(maxValue, tickSpacing) {
+  return Math.ceil(maxValue / tickSpacing) * tickSpacing;
 };
 
 const generateBlankGraph = function(height, width) {
@@ -18,7 +22,10 @@ const generateBlankGraph = function(height, width) {
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width} = options;
+  const {height, width, tickSpacing} = options;
+  const maxValue = findMaxValue(data);
+  const maxHeight = findMaxHeight(maxValue, tickSpacing);
+  console.log(maxHeight);
 
 
   // Setting width and height of bar chart based on passed in options.
@@ -26,11 +33,11 @@ const drawBarChart = function(data, options, element){
 
   //Creating bars in bar chart from input data
   //Setting heigh of bars inline based on data inputs
-  const maxHeight = options.height * 0.9;
-  const maxVal = findMax(data);
+  // const maxHeight = options.height * 0.9;
+  // const maxVal = findMax(data);
 
   for (let i = 0; i < data.length; i++) {
-    const barHeight = (data[i][1] * maxHeight) / maxVal;
+    const barHeight = (data[i][1] * height) / maxHeight;
     $('.bar-list').append(`<div class="barDiv"><li class=" bar ${options.valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
   }
 
@@ -88,7 +95,7 @@ const chartOptions = {
   titleFontSize: '40px',
   xAxis: 'x axis label',
   yAxis: 'y axis label',
-  tickSpacing: '2'
+  tickSpacing: '3'
 };
 const chartElement = $(".bar-chart");
 
