@@ -13,11 +13,30 @@
   --subtitleFontSize: 10px;
 }
 
+body {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas: 'title'
+                      'graph';
+  font-family: Optima, sans-serif;
+}
+
+header {
+  grid-area: title;
+  text-align: center;
+}
+
+section {
+  grid-area: graph;
+}
+
 .chart-section {
   position: relative;
   display: grid;
-  grid-template-areas: 'yAxis ticks chart'
-                        'blank blank xAxis';
+  grid-template-columns: 1fr 1fr 5fr 2fr;
+  grid-template-rows: 5fr 1fr;
+  grid-template-areas: 'yAxis meh chart right'
+                        'blank blank xAxis bottomright';
 }
 
 .bar-chart {
@@ -27,6 +46,7 @@
   border-bottom: black solid 1px;
   grid-area: chart;
   background: green;
+  position: relative;
 }
 
 .ticks {
@@ -35,10 +55,11 @@
   list-style-type: none;
   height: var(--height);
   width: 7px;
+  float:left;
   position: absolute;
-  right: 0px;
+  padding: 0;
+  left: -7px;
   margin: 0;
-
 }
 
 .tick {

@@ -164,5 +164,4 @@ const chartOptions = {
 };
 const chartElement = $(".bar-chart");
 
-
 drawBarChart(chartData, chartOptions, chartElement);
