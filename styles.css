@@ -95,6 +95,7 @@
 /* Change this to be a fraction/percentage of the graph height */
 .bar-label {
   position: absolute;
+  color: var(--labelColour);
   bottom: -40px;
 }
 

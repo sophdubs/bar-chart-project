@@ -104,12 +104,18 @@ const addCustomAxes = function(yAxis, xAxis) {
   }
 };
 
+// If user provides a custom colour for the labels, function sets the label to that colour.
+const customizeLabels = function(labelColour) {
+  if(labelColour) {
+    root.style.setProperty('--labelColour', labelColour);
+  }
+};
 
 
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, yAxis, xAxis} = options;
+  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, yAxis, xAxis, labelColour} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
   // Setting width and height of bar chart based on passed in options.
@@ -124,10 +130,7 @@ const drawBarChart = function(data, options, element){
   // Adds bar chart axes if user provides them
   addCustomAxes(yAxis, xAxis);
   // label colour can be customized if user specifies desired colour
-  // customizeLabels(labelColour);
-
-  //Set labels
-  // root.style.setProperty('--labelColour', options.labelColour);
+  customizeLabels(labelColour);
 };
 
 
@@ -144,7 +147,8 @@ const chartOptions = {
   titleColour: '#eb4034',
   titleFontSize: '40px',
   xAxis: 'x axis label',
-  yAxis: 'y axis label'
+  yAxis: 'y axis label',
+  labelColour: 'blue'
 };
 const chartElement = $(".bar-chart");
 
