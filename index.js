@@ -19,13 +19,9 @@ const drawBarChart = function(data, options, element){
   const numBars = data.length;
   if (options.barSpacing) {
     const space = Number(options.barSpacing.substring(0, options.barSpacing.length - 2));
-    console.log('space', space);
     const diff = options.width - (data.length * space);
-    console.log('diff', diff);
     const barMargin = space / 2;
-    console.log('bar margin', barMargin);
     const barWidth = diff / data.length;
-    console.log('bar width', barWidth);
     root.style.setProperty('--barWidth', `${barWidth}px`);
     root.style.setProperty('--barMargin', `${barMargin}px`);
   } else {
