@@ -8,7 +8,7 @@
   --titleColour: black;
   --titleFontSize: 12px;
   --valueColour: black;
-  --tickHeight: 0px;
+  --tickPixels: 0px;
 }
 
 .chart-section {
@@ -41,7 +41,7 @@
 
 .tick {
   border-top: solid black 1px;
-  height: var(--tickHeight);
+  height: var(--tickPixels);
 }
 
 .y-axis {

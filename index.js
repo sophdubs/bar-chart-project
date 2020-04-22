@@ -1,3 +1,4 @@
+// Selector to grab the root element which will be used to access and update CSS variables to customize bar chart.
 let root = document.documentElement;
 
 //Helper function to determine the max value in the input dataset
@@ -22,22 +23,42 @@ const findMaxHeight = function(maxValue, tickSpacing) {
   }
 };
 
+// Fuction sets width and height of bar chart based on customized values passed in by the user.
 const generateBlankGraph = function(height, width) {
-  // Setting width and height of bar chart based on passed in options.
   root.style.setProperty('--height', `${height}px`);
   root.style.setProperty('--width', `${width}px`);
 };
+
+// Function that adds ticks to the Y axis with custom spacing specified by the user.
+// If no spacing is provided, no ticks are added to the graph's Y axis.
+const addCustomTicks = function(tickSpacing, maxHeight, height) {
+  if (!tickSpacing) {
+    return;
+  } else {
+    let tickPixels = height / (maxHeight / tickSpacing);
+    let sum = maxHeight;
+    while (sum > 0) {
+      $('.ticks').append(`<li class="tick">${sum}</li>`);
+      sum -= Number(tickSpacing);
+    }
+    root.style.setProperty('--tickPixels', tickPixels + 'px');
+    return;
+  }
+};
+
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
   const {height, width, tickSpacing} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
-  console.log(maxHeight);
+
 
 
   // Setting width and height of bar chart based on passed in options.
   generateBlankGraph(height, width);
+  // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
+  addCustomTicks(tickSpacing, maxHeight, height);
 
   //Creating bars in bar chart from input data
   //Setting heigh of bars inline based on data inputs
@@ -103,7 +124,7 @@ const chartOptions = {
   titleColour: '#eb4034',
   titleFontSize: '40px',
   xAxis: 'x axis label',
-  yAxis: 'y axis label'
+  yAxis: 'y axis label',
 };
 const chartElement = $(".bar-chart");
 
