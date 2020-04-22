@@ -49,9 +49,10 @@ const addCustomTicks = function(tickSpacing, maxHeight, height) {
 // Add bars to graph and customize them to user input. Bar width is id dependent on total amout of values passed in.
 // Customization include position of values within the bars, barColour, valueColour and spacing between bars
 const addCustomBars = function(data, specs) {
+  // Destructure values from specs object to easily access them
+  const {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour}  = specs;
   //Creating bars in bar chart from input data
   //Setting height of bars inline based on data inputs
-  const {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour}  = specs;
   for (let i = 0; i < data.length; i++) {
     const barHeight = (data[i][1] * height) / maxHeight;
     $('.bar-list').append(`<div class="barDiv"><li class=" bar ${valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
@@ -79,9 +80,24 @@ const addCustomBars = function(data, specs) {
   }
 };
 
+// If user provides a title, this function will add it to the page header displayed above the bar graph.
+// Title colour and font size is customized if the user provides desired specifications.
+const addCustomTitle = function(title, titleColour, titleFontSize) {
+  if (title) {
+    $('header').append(`<h1 class="title">${title}</h1>`);
+    if (titleColour) {
+      root.style.setProperty('--titleColour', titleColour);
+    }
+    if (titleFontSize) {
+      root.style.setProperty('--titleFontSize', titleFontSize);
+    }
+  }
+};
+
+
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour} = options;
+  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
   // Setting width and height of bar chart based on passed in options.
@@ -91,15 +107,10 @@ const drawBarChart = function(data, options, element){
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
   addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
+  //Sets title and title customizations if user provides title and custom colour and font.
+  addCustomTitle(title, titleColour, titleFontSize);
 
 
-
-  //Set title
-  if (options.title) {
-    $('header').append(`<h1 class="title">${options.title}</h1>`);
-    root.style.setProperty('--titleColour', options.titleColour);
-    root.style.setProperty('--titleFontSize', options.titleFontSize);
-  }
 
   // Set chart axes {
   if (options.yAxis) {
