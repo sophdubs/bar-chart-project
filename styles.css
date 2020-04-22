@@ -8,6 +8,7 @@
   --titleColour: black;
   --titleFontSize: 12px;
   --valueColour: black;
+  --tickHeight: 0px;
 }
 
 .chart-section {
@@ -31,7 +32,7 @@
   background: pink;
   list-style-type: none;
   height: var(--height);
-  width: 20px;
+  width: 7px;
   position: absolute;
   right: 0px;
   margin: 0;
@@ -40,7 +41,7 @@
 
 .tick {
   border-top: solid black 1px;
-  height: 50px;
+  height: var(--tickHeight);
 }
 
 .y-axis {
@@ -53,6 +54,7 @@
 
 .x-axis {
   grid-area: xAxis;
+  margin-top: 20px;
   background: yellow;
 }
 
@@ -93,7 +95,7 @@
 /* Change this to be a fraction/percentage of the graph height */
 .bar-label {
   position: absolute;
-  bottom: -45px;
+  bottom: -40px;
 }
 
 .top {

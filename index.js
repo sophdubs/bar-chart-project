@@ -10,10 +10,19 @@ const findMax = function(data) {
   return max;
 };
 
-const drawBarChart = function(data, options, element){
+const generateBlankGraph = function(height, width) {
   // Setting width and height of bar chart based on passed in options.
-  root.style.setProperty('--height', `${options.height}px`);
-  root.style.setProperty('--width', `${options.width}px`);
+  root.style.setProperty('--height', `${height}px`);
+  root.style.setProperty('--width', `${width}px`);
+};
+
+const drawBarChart = function(data, options, element){
+  // Destructuring options for use in helper functions
+  const {height, width} = options;
+
+
+  // Setting width and height of bar chart based on passed in options.
+  generateBlankGraph(height, width);
 
   //Creating bars in bar chart from input data
   //Setting heigh of bars inline based on data inputs
@@ -78,7 +87,8 @@ const chartOptions = {
   titleColour: '#eb4034',
   titleFontSize: '40px',
   xAxis: 'x axis label',
-  yAxis: 'y axis label'
+  yAxis: 'y axis label',
+  tickSpacing: '2'
 };
 const chartElement = $(".bar-chart");
 
