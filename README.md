@@ -4,7 +4,12 @@
 
  ## Getting Started
 
- Clone this repo to your local machine using https://github.com/sophdubs/bar-chart-project.git
+ Clone this repo to your local machine using 
+ 
+ ```
+ git clone https://github.com/sophdubs/bar-chart-project.git
+ cd bar-chart-project.git
+ ```
 
  Run the following command to install all the project dependencies
 `npm install`
