@@ -33,9 +33,11 @@ drawBarChart(data, options, element);
 
 Format your data array as specified in the section below. If you decide to rename your data array, make sure to update the function signature accordingly.
 
-The options object with all the required keys is provided in the userFile.js file. For keys that you wish to customize, simply replace the current value with your preferred value based on the specifications in the section below. If no customization for that key is desired, simply leave the value as 'null' and the default settings will be applied. *** Do not edit any of the provided keys or  delete any key/value pairs from the options object. ***
+The options object with all the required keys is provided in the userFile.js file. For keys that you wish to customize, simply replace the current value with your preferred value based on the specifications in the section below. If no customization for that key is desired, simply leave the value as 'null' and the default settings will be applied. ***Do not edit any of the provided keys or  delete any key/value pairs from the options object.***
 
 The element argument has been handled for you and you do not need to edit this parameter.
+
+Save all your changes to the userFile.js file and open the index.html file in your browser to view your custom bar chart on the demo page.
 
 ## Parameters
 
