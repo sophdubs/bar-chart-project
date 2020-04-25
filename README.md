@@ -25,11 +25,14 @@ At the bottom of the file, you will see the function signature as follows:
 drawBarChart(data, options, element);
 ```
 
-- The **data** parameter is the data the chart will work from.
+- The **data** parameter is the data the chart will work from. The data you will be providing should be formatted as specified below.
 
-- The **options** parameter is an object which has optional customizations for the bar chart.
+- The **options** parameter is an object which has optional customizations for the bar chart. The options object with all the required keys is provided in the userFile.js file. For keys that you wish to customize, simply replace the current value with your preferred value based on the specifications below. If no customization for that key is desired, simply leave the value as 'null' and the default settings will be used. ** Do not delete any key/value pairs from the options object **
 
 - The **element** parameter is a DOM element or jQuery element that the chart will get rendered into.
+
+
+Your options object will contain all your customizations. The provided object contains all the 
 
 ## Parameters
 
