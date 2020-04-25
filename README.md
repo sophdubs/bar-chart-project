@@ -25,14 +25,17 @@ At the bottom of the file, you will see the function signature as follows:
 drawBarChart(data, options, element);
 ```
 
-- The **data** parameter is the data the chart will work from. The data you will be providing should be formatted as specified below.
+- The **data** parameter is the data the chart will work from. 
 
-- The **options** parameter is an object which has optional customizations for the bar chart. The options object with all the required keys is provided in the userFile.js file. For keys that you wish to customize, simply replace the current value with your preferred value based on the specifications below. If no customization for that key is desired, simply leave the value as 'null' and the default settings will be used. ** Do not delete any key/value pairs from the options object **
+- The **options** parameter is an object which has optional customizations for the bar chart. 
 
 - The **element** parameter is a DOM element or jQuery element that the chart will get rendered into.
 
+Format your data array as specified in the section below. If you decide to rename your data array, make sure to update the function signature accordingly.
 
-Your options object will contain all your customizations. The provided object contains all the 
+The options object with all the required keys is provided in the userFile.js file. For keys that you wish to customize, simply replace the current value with your preferred value based on the specifications in the section below. If no customization for that key is desired, simply leave the value as 'null' and the default settings will be applied. *** Do not edit any of the provided keys or  delete any key/value pairs from the options object. ***
+
+The element argument has been handled for you and you do not need to edit this parameter.
 
 ## Parameters
 
@@ -56,13 +59,15 @@ The options parameter is an object containing sixteen key-value pairs:
 - **subtitleFontSize**: Number representing the font size of the subtitle in pixels. If no font size is provided by the user, a default font size of 30px will be applied. 
 - **xAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
 - **yAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
-- **tickSpacing**: Number representing the space between ticks on the yY-axis. If no spacing is provided by the user, no ticks will be added to the Y-axis. 
+- **tickSpacing**: Number representing the space between ticks on the Y-axis. If no spacing is provided by the user, no ticks will be added to the Y-axis. 
 
 **Note:**
 For parameters requiring HEX codes, you can follow this link to a color picker page and copy paste the HEX code for your desired color. 
 https://www.google.com/search?q=color+picker 
 
-### Element
+### Element 
+
+
 
 
 
