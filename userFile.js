@@ -43,24 +43,6 @@ const chartElement = $(".bar-chart");
 
 drawBarChart(chartData, chartOptions, chartElement);
 
-// data = {
-//   'bars': {
-//     'Belgium': {'cases': 11899, 'deaths': 513 },
-//     'Switzerland': {'cases': 15475, 'deaths': 295 },
-//     'United Kingdom': {'cases': 22141, 'deaths': 1408 },
-//     'Iran': {'cases': 41495, 'deaths': 2757 },
-//     'France': {'cases': 44450, 'deaths': 3024 },
-//     'Germany': {'cases': 57298, 'deaths': 455 },
-//     'Mainland China': {'cases': 81518, 'deaths': 3305 },
-//     'Spain': {'cases': 85195, 'deaths': 7340 },
-//     'Italy': {'cases': 101739, 'deaths': 11591 },
-//     'United States': {'cases': 164274, 'deaths': 3040 }
-//   },
-//   'barColors': {
-//     'cases': 'red',
-//     'deaths': 'grey'
-//   }
-// };
 
 
 

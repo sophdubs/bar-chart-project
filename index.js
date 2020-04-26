@@ -56,31 +56,47 @@ const addCustomBars = function(data, specs) {
   const {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour}  = specs;
   //Creating bars in bar chart from input data
   //Setting height of bars inline based on data inputs
-  for (let i = 0; i < data.length; i++) {
-    const barHeight = (data[i][1] * height) / maxHeight;
-    $('.bar-list').append(`<div class="barDiv"><li class=" bar ${valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
+
+
+  // for (let i = 0; i < data.length; i++) {
+  //   const barHeight = (data[i][1] * height) / maxHeight;
+  //   $('.bar-list').append(`<div class="barDiv"><li class="bar ${valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
+  // }
+  for (let i = 0; i < data.barData.length; i++) {
+    let str = '';
+    for (let j = 0; j < data.barData[0].length; j++) {
+      let barHeight = (data.barData[i][j] * height) / maxHeight;
+      str += `<li class="bar ${valuePos}" style="height:${barHeight}px"><p class="value">${data.barData[i][j]}</p></li>`;
+    }
+    $('.bar-list').append('<div class="barDiv">' + str + '</div>');
   }
+
+
+
+
+
+
   // Default Settings for bar spacing and width of bars if user did not specify
-  const numBars = data.length;
-  let barMargin = (Math.floor(Number(width) / numBars) * 0.20) / 2;
-  let barWidth = Math.floor(Number(width) / numBars) - (barMargin * 2);
-  // Override default settings if user provided barSpacing
-  if (barSpacing) {
-    const space = Number(barSpacing.substring(0, barSpacing.length - 2));
-    const diff = width - (numBars * space);
-    barMargin = space / 2;
-    barWidth = diff / numBars;
-  }
+  // const numBars = data.length;
+  // let barMargin = (Math.floor(Number(width) / numBars) * 0.20) / 2;
+  // let barWidth = Math.floor(Number(width) / numBars) - (barMargin * 2);
+  // // Override default settings if user provided barSpacing
+  // if (barSpacing) {
+  //   const space = Number(barSpacing.substring(0, barSpacing.length - 2));
+  //   const diff = width - (numBars * space);
+  //   barMargin = space / 2;
+  //   barWidth = diff / numBars;
+  // }
   // Set bar spacing and bar width
-  root.style.setProperty('--barWidth', `${barWidth}px`);
-  root.style.setProperty('--barMargin', `${barMargin}px`);
+  // root.style.setProperty('--barWidth', `${barWidth}px`);
+  // root.style.setProperty('--barMargin', `${barMargin}px`);
   // Set custom colour for bars and bar values if customization was provided
-  if (barColour) {
-    root.style.setProperty('--barColour', barColour);
-  }
-  if (valueColour) {
-    root.style.setProperty('--valueColour', valueColour);
-  }
+  // if (barColour) {
+  //   root.style.setProperty('--barColour', barColour);
+  // }
+  // if (valueColour) {
+  //   root.style.setProperty('--valueColour', valueColour);
+  // }
 };
 
 // If user provides a title, this function will add it to the page header displayed above the bar graph.
@@ -130,21 +146,22 @@ const drawBarChart = function(data, options, element){
   const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
+
   // Setting width and height of bar chart based on passed in options.
   generateBlankGraph(height, width);
   // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
-  addCustomTicks(tickSpacing, maxHeight, height);
+  // addCustomTicks(tickSpacing, maxHeight, height);
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
 
   // addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
 
   //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
-  addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
+  // addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
   // Adds bar chart axes if user provides them
-  addCustomAxes(yAxis, xAxis);
+  // addCustomAxes(yAxis, xAxis);
   // label colour can be customized if user specifies desired colour
-  customizeLabels(labelColour);
+  // customizeLabels(labelColour);
 };
 
 
