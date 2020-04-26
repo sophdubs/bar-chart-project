@@ -22,7 +22,7 @@ const chartOptions = {
   subtitleFontSize: '20px',
   xAxis: 'x axis label',
   yAxis: 'y axis label',
-  tickSpacing: '3'
+  tickSpacing: '25000'
 };
 
 const chartData = {

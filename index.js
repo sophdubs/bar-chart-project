@@ -34,6 +34,9 @@ const generateBlankGraph = function(height, width) {
 // Function that adds ticks to the Y axis with custom spacing specified by the user.
 // If no spacing is provided, no ticks are added to the graph's Y axis.
 const addCustomTicks = function(tickSpacing, maxHeight, height) {
+  console.log('tickspacing', tickSpacing);
+  console.log('maxHeight', maxHeight);
+  console.log('height', height);
   if (!tickSpacing) {
     return;
   } else {
@@ -150,7 +153,7 @@ const drawBarChart = function(data, options, element){
   // Setting width and height of bar chart based on passed in options.
   generateBlankGraph(height, width);
   // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
-  // addCustomTicks(tickSpacing, maxHeight, height);
+  addCustomTicks(tickSpacing, maxHeight, height);
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
 
