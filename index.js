@@ -5,11 +5,10 @@ let root = document.documentElement;
 const findMaxValue = function(data) {
   let max = 0;
   for (let i = 0; i < data.barData.length; i++) {
-    if (data.barData[i][0] > max) {
-      max = data.barData[i][0];
-    }
-    if (data.barData[i][1] > max) {
-      max = data.barData[i][1];
+    for (let j = 0; j < data.barData[0].length; j++) {
+      if (data.barData[i][j] > max) {
+        max = data.barData[i][j];
+      }
     }
   }
   return max;

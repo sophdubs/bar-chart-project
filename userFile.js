@@ -32,6 +32,13 @@ const chartData = {
   'legend': ['Cases', 'Deaths']
 };
 
+const chartData2 = {
+  'barData': [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]],
+  'barLabels': ['Belgium', 'Switzerland', 'United Kingdom', 'Iran', 'France', 'Germany', 'Mainland China', 'Spain', 'Italy', 'United States'],
+  'barColors': ['red', 'grey'],
+  'legend': ['Cases', 'Deaths']
+};
+
 const chartElement = $(".bar-chart");
 
 drawBarChart(chartData, chartOptions, chartElement);
