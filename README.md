@@ -37,7 +37,7 @@ The options object with all the required keys is provided in the `userFile.js` f
 
 The element argument has been handled for you and you do not need to edit this parameter.
 
-Save all your changes to the `userFile.js` file and open the `index.html` file in your browser to view your custom bar chart on the demo page.
+Save all your changes to the `userFile.js` file. Open the `index.html` file in your browser to view your custom bar chart on the demo page.
 
 ## Parameters
 

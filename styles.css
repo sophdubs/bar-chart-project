@@ -62,10 +62,32 @@ section {
 }
 
 .tick {
+  position: relative;
   border-top: solid black 1px;
   height: var(--tickPixels);
 }
 
+.tick-nums {
+  list-style-type: none;
+  height: var(--height);
+  float: left;
+  background: pink;
+  left: -80px;
+  margin: 0;
+  padding-left: 10px;
+
+}
+
+.tick-num {
+  position: relative;
+  height: var(--tickPixels);
+}
+
+.tick-text {
+  position: absolute;
+  left: -15px;
+  top: -26px;
+}
 .y-axis {
   grid-area: yAxis;
   transform: rotate(270deg);
@@ -99,6 +121,7 @@ section {
   display: table-cell;
   position: relative;
   height: var(--height);
+  margin: 0 var(--barMargin);
   display: flex;
 }
 
@@ -107,7 +130,6 @@ section {
   width: var(--barWidth);
   background: var(--barColour);
   float: left;
-  margin: 0 var(--barMargin);
   align-self: flex-end;
   display: flex;
   justify-content: center;

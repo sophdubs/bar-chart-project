@@ -9,11 +9,11 @@ const chartOptions = {
 
   height: '300',
   width: '600',
-  tickSpacing: '3',
+  barColour: '#eb4034',
+  barSpacing: '30px',
   valuePos: 'top',
   valueColour: '#000000',
-  barSpacing: '30px',
-  barColour: '#eb4034',
+  labelColour: 'blue',
   title: 'This is the title',
   titleColour: '#eb4034',
   titleFontSize: '40px',
@@ -22,7 +22,7 @@ const chartOptions = {
   subtitleFontSize: '20px',
   xAxis: 'x axis label',
   yAxis: 'y axis label',
-  labelColour: 'blue'
+  tickSpacing: '3'
 };
 
 const chartElement = $(".bar-chart");

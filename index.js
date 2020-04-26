@@ -38,7 +38,8 @@ const addCustomTicks = function(tickSpacing, maxHeight, height) {
     let tickPixels = height / (maxHeight / tickSpacing);
     let sum = maxHeight;
     while (sum > 0) {
-      $('.ticks').append(`<li class="tick">${sum}</li>`);
+      $('.ticks').append(`<li class="tick"></li>`);
+      $('.tick-nums').append(`<li class="tick-num">${sum}</li>`);
       sum -= Number(tickSpacing);
     }
     root.style.setProperty('--tickPixels', tickPixels + 'px');
