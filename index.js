@@ -4,9 +4,12 @@ let root = document.documentElement;
 //Helper function to determine the max value in the input dataset
 const findMaxValue = function(data) {
   let max = 0;
-  for (let i = 0; i < data.length; i++) {
-    if (data[i][1] > max) {
-      max = data[i][1];
+  for (let i = 0; i < data.barData.length; i++) {
+    if (data.barData[i][0] > max) {
+      max = data.barData[i][0];
+    }
+    if (data.barData[i][1] > max) {
+      max = data.barData[i][1];
     }
   }
   return max;
@@ -134,7 +137,9 @@ const drawBarChart = function(data, options, element){
   addCustomTicks(tickSpacing, maxHeight, height);
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
-  addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
+
+  // addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
+
   //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
   addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
   // Adds bar chart axes if user provides them
