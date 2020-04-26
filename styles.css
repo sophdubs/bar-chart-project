@@ -16,13 +16,13 @@
 body {
   display: grid;
   grid-template-rows: 1fr 4fr;
-  grid-template-areas: 'title'
+  grid-template-areas: 'header'
                       'graph';
   font-family: Optima, sans-serif;
 }
 
 header {
-  grid-area: title;
+  grid-area: header;
   text-align: center;
 }
 
@@ -32,11 +32,14 @@ section {
 
 .chart-section {
   position: relative;
-  display: grid;
-  grid-template-columns: 2fr 5fr 2fr;
-  grid-template-rows: 5fr 1fr;
-  grid-template-areas: 'yAxis chart right'
-                        'blank xAxis bottomright';
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.chart-container {
+  display: flex;
 }
 
 .bar-chart {
@@ -44,13 +47,10 @@ section {
   height: var(--height);
   border-left: black solid 1px;
   border-bottom: black solid 1px;
-  grid-area: chart;
   position: relative;
-  margin: 0 auto;
 }
 
 .ticks {
-  grid-area: ticks;
   list-style-type: none;
   height: var(--height);
   width: 7px;
@@ -70,17 +70,14 @@ section {
 .tick-nums {
   list-style-type: none;
   height: var(--height);
-  float: left;
-  background: pink;
-  left: -80px;
-  margin: 0;
-  padding-left: 10px;
-
+  padding: 0;
+  margin-right: 20px;
 }
 
 .tick-num {
   position: relative;
   height: var(--tickPixels);
+
 }
 
 .tick-text {
@@ -89,17 +86,12 @@ section {
   top: -26px;
 }
 .y-axis {
-  grid-area: yAxis;
   transform: rotate(270deg);
-  /* CHANGE THIS LATERRRRR */
   height: 30px;
-  position: absolute;
-  right: 0px;
-  top: 45%;
+  margin-top: 15vh;
 }
 
 .x-axis {
-  grid-area: xAxis;
   margin-top: 30px;
   display: flex;
   justify-content: center;
