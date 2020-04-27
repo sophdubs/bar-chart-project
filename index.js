@@ -141,26 +141,18 @@ const customizeLabels = function(labelColour) {
   }
 };
 
-
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
   const {height, width, tickSpacing, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
-
   // Setting width and height of bar chart based on passed in options.
   generateBlankGraph(height, width);
   // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
   addCustomTicks(tickSpacing, maxHeight, height);
-
-
-
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
   addCustomBars(data, {height, width, maxHeight, barSpacing, barColour, valueColour});
-
-
-
   //Creates custom legend to identify which colors represents which data in a stacked bar chart
   addCustomLegend(data);
   //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
@@ -170,26 +162,3 @@ const drawBarChart = function(data, options, element){
   // label colour can be customized if user specifies desired colour
   customizeLabels(labelColour);
 };
-
-
-// const chartData = [['first', 1], ['second', 2], ['third', 3], ['fourth', 4], ['fifth', 5], ['sixth', 6], ['seventh', 7], ['eighth', 8]];
-// const chartOptions = {
-//   height: '400',
-//   width: '600',
-//   tickSpacing: '3',
-//   valueColour: '#000000',
-//   barSpacing: '30px',
-//   barColour: '#eb4034',
-//   title: 'This is the title',
-//   titleColour: '#eb4034',
-//   titleFontSize: '40px',
-//   subtitle: 'This is the subtitle',
-//   subtitleColour: '#000000',
-//   subtitleFontSize: '20px',
-//   xAxis: 'x axis label',
-//   yAxis: 'y axis label',
-//   labelColour: 'blue'
-// };
-// const chartElement = $(".bar-chart");
-
-// drawBarChart(chartData, chartOptions, chartElement);
