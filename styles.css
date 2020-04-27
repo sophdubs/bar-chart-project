@@ -99,6 +99,24 @@ section {
   justify-content: center;
 }
 
+.legend-square {
+  width: 10px;
+  height: 10px;
+  border: black solid 1px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.legend-list {
+  border: black solid 1px;
+  list-style-type: none;
+  padding: 10px 20px;
+}
+
+.legend-list li {
+  display: flex;
+}
+
 .bar-list {
   display: table-cell;
   width: 100%;
@@ -108,15 +126,17 @@ section {
   padding: 0px;
   text-align: center;
   position: relative;
+  display: flex;
 }
 
 .barDiv {
-  float: left;
-  display: table-cell;
+  /* float: left; */
+  /* display: table-cell; */
   position: relative;
   height: var(--height);
   margin: 0 var(--barMargin);
   display: flex;
+  justify-content: center;
 }
 
 .bar {
@@ -134,7 +154,6 @@ section {
   color: var(--valueColour);
 }
 
-/* Change this to be a fraction/percentage of the graph height */
 .bar-label {
   position: absolute;
   color: var(--labelColour);
@@ -163,7 +182,6 @@ section {
   color: var(--subtitleColour);
   font-size: var(--subtitleFontSize);
 }
-
 
 
 

@@ -34,9 +34,6 @@ const generateBlankGraph = function(height, width) {
 // Function that adds ticks to the Y axis with custom spacing specified by the user.
 // If no spacing is provided, no ticks are added to the graph's Y axis.
 const addCustomTicks = function(tickSpacing, maxHeight, height) {
-  console.log('tickspacing', tickSpacing);
-  console.log('maxHeight', maxHeight);
-  console.log('height', height);
   if (!tickSpacing) {
     return;
   } else {
@@ -76,15 +73,11 @@ const addCustomBars = function(data, specs) {
     $('.bar-list').append('<div class="barDiv">' + str + '</div>');
   }
 
-
-
-
-
-
   // Default Settings for bar spacing and width of bars if user did not specify
-  // const numBars = data.length;
-  // let barMargin = (Math.floor(Number(width) / numBars) * 0.20) / 2;
-  // let barWidth = Math.floor(Number(width) / numBars) - (barMargin * 2);
+  const numBars = data.barData.length;
+  let barMargin = (Math.floor(Number(width) / numBars) * 0.20) / 2;
+  let barWidth = Math.floor(Number(width) / numBars) - (barMargin * 2);
+  console.log(barWidth);
   // // Override default settings if user provided barSpacing
   // if (barSpacing) {
   //   const space = Number(barSpacing.substring(0, barSpacing.length - 2));
