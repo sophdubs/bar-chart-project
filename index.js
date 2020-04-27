@@ -67,7 +67,7 @@ const addCustomBars = function(data, specs) {
     let zIndex = 3;
     for (let j = 0; j < data.barData[0].length; j++) {
       let barHeight = (data.barData[i][j] * height) / maxHeight;
-      str += `<li class="bar ${valuePos}" style="height:${barHeight}px; z-index: ${zIndex}"><p class="value">${data.barData[i][j]}</p></li>`;
+      str += `<li class="bar ${valuePos}" style="height:${barHeight}px; z-index: ${zIndex}; background: ${data.barColors[j]}"><p class="value">${data.barData[i][j]}</p></li>`;
       zIndex --;
     }
     $('.bar-list').append('<div class="barDiv">' + str + '</div>');
@@ -95,6 +95,17 @@ const addCustomBars = function(data, specs) {
   // if (valueColour) {
   //   root.style.setProperty('--valueColour', valueColour);
   // }
+};
+
+// If users prodive legend information in the data object (in the case of a stacked bar chart), this function will generate a custom legend.
+const addCustomLegend = function(data) {
+  if (data.legend) {
+    const legend = data.legend;
+    const colors = data.barColors;
+    for (let i = 0; i < legend.length; i++) {
+      $('.legend-list').append(`<li><div class="legend-square" style="background: ${colors[i]}"></div><span>${legend[i]}</span></li>`);
+    }
+  }
 };
 
 // If user provides a title, this function will add it to the page header displayed above the bar graph.
@@ -149,11 +160,17 @@ const drawBarChart = function(data, options, element){
   generateBlankGraph(height, width);
   // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
   addCustomTicks(tickSpacing, maxHeight, height);
+
+
+
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
-
   addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
 
+
+
+  //Creates custom legend to identify which colors represents which data in a stacked bar chart
+  addCustomLegend(data);
   //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
   // addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
   // Adds bar chart axes if user provides them

@@ -150,6 +150,8 @@ section {
   border: 1px black solid;
 }
 
+
+
 .value {
   color: var(--valueColour);
 }
