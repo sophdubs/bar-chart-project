@@ -147,6 +147,7 @@ section {
   display: flex;
   justify-content: center;
   border: 1px black solid;
+  color: rgba(0, 0, 0, 0);
 }
 
 .bar-ul {
@@ -155,14 +156,6 @@ section {
   align-self: flex-end;
   display: flex;
   width: var(--barWidth);
-}
-
-
-.value {
-  color: var(--valueColour);
-  position: absolute;
-  margin: 0;
-  top: -20px;
 }
 
 .bar-label {
@@ -194,8 +187,15 @@ section {
   font-size: var(--subtitleFontSize);
 }
 
+.value {
+  position: absolute;
+  margin: 0;
+  top: -20px;
+  font-weight: bold;
+}
 
-
-
-
-
+.bar:hover {
+  color: var(--valueColour);
+  z-index: 10 !important;
+  background: yellow !important;
+}
