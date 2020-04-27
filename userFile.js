@@ -11,7 +11,6 @@ const chartOptions = {
   width: '600',
   barColour: '#eb4034',
   barSpacing: '30px',
-  valuePos: 'top',
   valueColour: '#000000',
   labelColour: 'blue',
   title: 'This is the title',

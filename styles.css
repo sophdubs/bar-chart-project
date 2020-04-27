@@ -111,6 +111,7 @@ section {
   border: black solid 1px;
   list-style-type: none;
   padding: 10px 20px;
+  margin-left: 2vw;
 }
 
 .legend-list li {
@@ -130,8 +131,6 @@ section {
 }
 
 .barDiv {
-  /* float: left; */
-  /* display: table-cell; */
   position: relative;
   height: var(--height);
   margin: 0 var(--barMargin);
@@ -161,6 +160,9 @@ section {
 
 .value {
   color: var(--valueColour);
+  position: absolute;
+  margin: 0;
+  top: -20px;
 }
 
 .bar-label {

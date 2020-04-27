@@ -53,21 +53,16 @@ const addCustomTicks = function(tickSpacing, maxHeight, height) {
 // Customization include position of values within the bars, barColour, valueColour and spacing between bars
 const addCustomBars = function(data, specs) {
   // Destructure values from specs object to easily access them
-  const {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour}  = specs;
+  const {height, width, maxHeight, barSpacing, barColour, valueColour}  = specs;
   //Creating bars in bar chart from input data
   //Setting height of bars inline based on data inputs
 
-
-  // for (let i = 0; i < data.length; i++) {
-  //   const barHeight = (data[i][1] * height) / maxHeight;
-  //   $('.bar-list').append(`<div class="barDiv"><li class="bar ${valuePos}" style="height: ${barHeight}px"><p class="value">${data[i][1]}</p><p class="bar-label">${data[i][0]}</p></li></div>`);
-  // }
   for (let i = 0; i < data.barData.length; i++) {
     let str = '';
     let zIndex = 3;
     for (let j = 0; j < data.barData[0].length; j++) {
       let barHeight = (data.barData[i][j] * height) / maxHeight;
-      str += `<li class="bar ${valuePos}" style="height:${barHeight}px; z-index: ${zIndex}; background: ${data.barColors[j]}"><p class="value">${data.barData[i][j]}</p></li>`;
+      str += `<li class="bar" style="height:${barHeight}px; z-index: ${zIndex}; background: ${data.barColors[j]}"><p class="value">${data.barData[i][j]}</p><p class="bar-label">${data.barLabels[i]}</p></li>`;
       zIndex --;
     }
     $('.bar-list').append('<div class="barDiv"><ul class="bar-ul">' + str + '</ul></div>');
@@ -79,19 +74,19 @@ const addCustomBars = function(data, specs) {
   let barWidth = Math.floor(Number(width) / numBars) - (barMargin * 2);
   console.log(barWidth);
   // // Override default settings if user provided barSpacing
-  // if (barSpacing) {
-  //   const space = Number(barSpacing.substring(0, barSpacing.length - 2));
-  //   const diff = width - (numBars * space);
-  //   barMargin = space / 2;
-  //   barWidth = diff / numBars;
-  // }
+  if (barSpacing) {
+    const space = Number(barSpacing.substring(0, barSpacing.length - 2));
+    const diff = width - (numBars * space);
+    barMargin = space / 2;
+    barWidth = diff / numBars;
+  }
   // Set bar spacing and bar width
-  // root.style.setProperty('--barWidth', `${barWidth}px`);
-  // root.style.setProperty('--barMargin', `${barMargin}px`);
+  root.style.setProperty('--barWidth', `${barWidth}px`);
+  root.style.setProperty('--barMargin', `${barMargin}px`);
   // Set custom colour for bars and bar values if customization was provided
-  // if (valueColour) {
-  //   root.style.setProperty('--valueColour', valueColour);
-  // }
+  if (valueColour) {
+    root.style.setProperty('--valueColour', valueColour);
+  }
 };
 
 // If users prodive legend information in the data object (in the case of a stacked bar chart), this function will generate a custom legend.
@@ -149,7 +144,7 @@ const customizeLabels = function(labelColour) {
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing, valuePos, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
+  const {height, width, tickSpacing, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
 
@@ -162,18 +157,18 @@ const drawBarChart = function(data, options, element){
 
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
-  addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
+  addCustomBars(data, {height, width, maxHeight, barSpacing, barColour, valueColour});
 
 
 
   //Creates custom legend to identify which colors represents which data in a stacked bar chart
   addCustomLegend(data);
   //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
-  // addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
+  addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
   // Adds bar chart axes if user provides them
-  // addCustomAxes(yAxis, xAxis);
+  addCustomAxes(yAxis, xAxis);
   // label colour can be customized if user specifies desired colour
-  // customizeLabels(labelColour);
+  customizeLabels(labelColour);
 };
 
 
@@ -182,7 +177,6 @@ const drawBarChart = function(data, options, element){
 //   height: '400',
 //   width: '600',
 //   tickSpacing: '3',
-//   valuePos: 'top',
 //   valueColour: '#000000',
 //   barSpacing: '30px',
 //   barColour: '#eb4034',
