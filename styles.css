@@ -120,13 +120,14 @@ section {
 }
 
 .bar {
-  position: relative;
+  position: absolute;
   width: var(--barWidth);
   background: var(--barColour);
   float: left;
   align-self: flex-end;
   display: flex;
   justify-content: center;
+  border: 1px black solid;
 }
 
 .value {

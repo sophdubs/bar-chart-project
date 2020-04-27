@@ -67,9 +67,11 @@ const addCustomBars = function(data, specs) {
   // }
   for (let i = 0; i < data.barData.length; i++) {
     let str = '';
+    let zIndex = 3;
     for (let j = 0; j < data.barData[0].length; j++) {
       let barHeight = (data.barData[i][j] * height) / maxHeight;
-      str += `<li class="bar ${valuePos}" style="height:${barHeight}px"><p class="value">${data.barData[i][j]}</p></li>`;
+      str += `<li class="bar ${valuePos}" style="height:${barHeight}px; z-index: ${zIndex}"><p class="value">${data.barData[i][j]}</p></li>`;
+      zIndex --;
     }
     $('.bar-list').append('<div class="barDiv">' + str + '</div>');
   }
@@ -157,7 +159,7 @@ const drawBarChart = function(data, options, element){
   // Add bars to graph and customize them to user input
   // Customization include position of values within the bars, barColour, valueColour and spacing between bars
 
-  // addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
+  addCustomBars(data, {height, width, maxHeight, valuePos, barSpacing, barColour, valueColour});
 
   //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
   // addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
