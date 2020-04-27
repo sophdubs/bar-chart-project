@@ -150,6 +150,13 @@ section {
   border: 1px black solid;
 }
 
+.bar-ul {
+  padding: 0;
+  position: relative;
+  align-self: flex-end;
+  display: flex;
+  width: var(--barWidth);
+}
 
 
 .value {

@@ -70,7 +70,7 @@ const addCustomBars = function(data, specs) {
       str += `<li class="bar ${valuePos}" style="height:${barHeight}px; z-index: ${zIndex}; background: ${data.barColors[j]}"><p class="value">${data.barData[i][j]}</p></li>`;
       zIndex --;
     }
-    $('.bar-list').append('<div class="barDiv">' + str + '</div>');
+    $('.bar-list').append('<div class="barDiv"><ul class="bar-ul">' + str + '</ul></div>');
   }
 
   // Default Settings for bar spacing and width of bars if user did not specify
@@ -89,9 +89,6 @@ const addCustomBars = function(data, specs) {
   // root.style.setProperty('--barWidth', `${barWidth}px`);
   // root.style.setProperty('--barMargin', `${barMargin}px`);
   // Set custom colour for bars and bar values if customization was provided
-  // if (barColour) {
-  //   root.style.setProperty('--barColour', barColour);
-  // }
   // if (valueColour) {
   //   root.style.setProperty('--valueColour', valueColour);
   // }
