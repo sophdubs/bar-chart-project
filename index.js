@@ -72,7 +72,6 @@ const addCustomBars = function(data, specs) {
   const numBars = data.barData.length;
   let barMargin = (Math.floor(Number(width) / numBars) * 0.20) / 2;
   let barWidth = Math.floor(Number(width) / numBars) - (barMargin * 2);
-  console.log(barWidth);
   // // Override default settings if user provided barSpacing
   if (barSpacing) {
     const space = Number(barSpacing.substring(0, barSpacing.length - 2));
@@ -97,6 +96,7 @@ const addCustomLegend = function(data) {
     for (let i = 0; i < legend.length; i++) {
       $('.legend-list').append(`<li><div class="legend-square" style="background: ${colors[i]}"></div><span>${legend[i]}</span></li>`);
     }
+    $('.legend-list').css('border', '1px solid black');
   }
 };
 
