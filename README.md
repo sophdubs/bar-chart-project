@@ -47,6 +47,7 @@ The data parameter is an object containing four key-value pairs. For stacked bar
 - **barLabels**: Array containing the labels (strings) for each bar. Make sure the order of your labels corresponds to the order of your barData. For example, `barData[0]` should be the data that corresponds to the bar labelled `barLabel[0]`.
 - **legend**: Array of strings containing the different labels for the different values in each bar of the stacked bar chart. This will be used to create a legend so the user can determine which bar belongs to which dataset. Make sure the order of the data in each sub array of barData matches the order of the legend array. For example, if `legend[0]` is 'group A', then the values at index 0 in each sub-array of barData should be for group A. If you are creating a single bar chart, the value for legend should be `null`.
 - **barColors**: Array of strings with the HEX code of the desired colors for the stacked bars in the bar chart. Make sure the order of the colors match the order of the legend. For example, if you wand `legend[0]` data to be represented by a green bar, then `barColors[0]` should be the HEX code for green.
+
 **Example for single bar chart data object**
 ```
 const chartData = {
@@ -60,7 +61,7 @@ const chartData = {
 ```
 //Percentage of women and men in given professions//
 const chartData = {
-  'barData': [[97.5, 2.5],[83.8, 16.2], [75.6, 24.4], [61.3, 38.7], [40.4, 59.8], [27.4, 72.7], [3.5, 96.5]]
+  'barData': [[97, 3],[84, 16], [76, 24], [61, 39], [40, 60], [27, 73], [3, 97]]
   'barLabels': ['kindergarten teacher', 'librarian', 'flight attendant', 'accountant, 'musicians/singers, 'chiropractors, 'firefighter'],
   'legend': ['Women', 'Men']
   'barColors': ['#f59898', '#a8f3f7'],
@@ -84,6 +85,25 @@ The options parameter is an object containing fourteen key-value pairs:
 - **yAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
 - **tickSpacing**: Number representing the space between ticks on the Y-axis. If no spacing is provided by the user, no ticks will be added to the Y-axis. 
 
+**Example options object**
+```
+const chartOptions = {
+  height: '400',
+  width: '700',
+  barSpacing: '25px',
+  valueColour: '#000000',
+  labelColour: '#000000',
+  title: 'This is a title',
+  titleColour: '#000000',
+  titleFontSize: '40px',
+  subtitle: 'This is a subtitle',
+  subtitleColour: '#000000',
+  subtitleFontSize: '22px',
+  xAxis: 'This is the x-axis',
+  yAxis: 'This is the y-axis',
+  tickSpacing: '100'
+};
+```
 **Note:**
 For parameters requiring HEX codes, you can follow this link to a color picker page and copy paste the HEX code for your desired color. 
 https://www.google.com/search?q=color+picker 
