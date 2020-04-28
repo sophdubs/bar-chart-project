@@ -1,15 +1,15 @@
 :root {
-  --height: 0px;
-  --width: 0px;
+  --height: 400px;
+  --width: 600px;
   --barWidth: 20px;
   --barMargin: 20px;
   --labelColour: black;
   --titleColour: black;
-  --titleFontSize: 12px;
+  --titleFontSize: 50px;
   --valueColour: black;
   --tickPixels: 0px;
   --subtitleColour: black;
-  --subtitleFontSize: 10px;
+  --subtitleFontSize: 30px;
 }
 
 body {
