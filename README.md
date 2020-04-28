@@ -79,6 +79,8 @@ const chartData = {
 ```
 
 ### chartOptions
+![](images/stacked-with-labels.png)
+***Example of each key-value pair in charOptions on the demo graph***
 The options parameter is an object containing fourteen key-value pairs:
 - **(1)height**: Number representing the desired height of the bar chart in pixels. If no height is provided by the user, the default height is 400px. 
 - **(2)width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.  
@@ -114,9 +116,6 @@ const chartOptions = {
   tickSpacing: '100'
 };
 ```
-![](images/stacked-with-labels.png)
-***Example of each key-value pair in charOptions on the demo graph***
-
 **Note:**
 For parameters requiring HEX codes, you can follow this link to a color picker page and copy paste the HEX code for your desired color. 
 https://www.google.com/search?q=color+picker 
@@ -124,6 +123,24 @@ https://www.google.com/search?q=color+picker
 ### chartElement 
 The element parameter is simple the DOM element to which the demo bar chart will be rendered. As mentioned above, this has already been handled for you and there is no need for you to edit this parameter. 
 
+## Known Bug and/or Issues
+### Bugs
+- There are no known bugs at this time.
+### Issues
+- The API is quite demanding when it comes to the format of the input data. If the user is able to follow this README and provide the data and customizations in the correct format, no issues should be present. However if any key/value pairs are removed or renamed in either the `chartData` or `chartOptions` object, the code will break and the bar chart will not be rendered properly.
+- Initially, the user could customize the location of the values in each bar of the bar graph. With the addition of 'stacked bar chart' functionality, the bars became too crowded to show the values. Thus, the ability to chose whether the values be shown on the top, center, or bottom of the bar was lost. Now, when a user hovers over a particular bar, that bar changes colors and the bar value is shown above the bar.
+
+## Upcoming Features
+- A more forgiving/user-friendly way to submit data and customizations.
+- Options for users to customize the animation of the bar graph. 
+
+## Resources
+- Setting up ESLint for VS Code: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+- Understanding how to use jQuery: https://api.jquery.com/
+- Javascript related issues: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- Using CSS variables: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+- Writing and formatting README: https://guides.github.com/features/mastering-markdown/
+- Setting up github pages: https://help.github.com/en/github/working-with-github-pages/about-github-pages
 
 
 
