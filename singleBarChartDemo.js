@@ -9,7 +9,6 @@
 // };
 
 // const chartOptions = {
-
 //   height: '400',
 //   width: '700',
 //   barSpacing: '25px',
