@@ -42,12 +42,30 @@ Save all your changes to the `userFile.js` file. Open the `index.html` file in y
 ## Parameters
 
 ### Data 
-The data parameter is an object containing four key-value pairs. For stacked bar charts, all four key-value pairs are required. For single bar charts, the legend value should be `'null'`.
-- **barData**: Array containing sub-arrays of the data. The nested arrays are to accomodate stacked bar charts which have multiple values for each bar. For single bar charts, you must still nest each bar value within its own array.  
+The data parameter is an object containing four key-value pairs. For stacked bar charts, all four key-value pairs are required. For single bar charts, the legend value should be `null`.
+- **barData**: Array containing sub-arrays of the data for each bar. The nested arrays are to accomodate stacked bar charts which have multiple values for each bar. For single bar charts, you must still nest each bar value within its own array.  
 - **barLabels**: Array containing the labels (strings) for each bar. Make sure the order of your labels corresponds to the order of your barData. For example, `barData[0]` should be the data that corresponds to the bar labelled `barLabel[0]`.
-- **legend**: Array of strings containing the different labels for the different values in each bar of the stacked bar chart.This will be used to create a legend so the user which bar belongs to which group. Make sure the order of the data in each sub array of barData matches the order of the legend array. For example, if the `legend[0]` is for 'group A', then each value at index 0 in the sub arrays of barData should be for group A. 
-- **barColors**: Array of strings with the HEX code of the desired colors for the stacked bars in the bar chart. Make sure the order of the colors match the order of the legend. For example, if you wand `legend[0]` data to be represented by a green bar, then `barColors[0]` should be the HEX code for green'.
-
+- **legend**: Array of strings containing the different labels for the different values in each bar of the stacked bar chart. This will be used to create a legend so the user can determine which bar belongs to which dataset. Make sure the order of the data in each sub array of barData matches the order of the legend array. For example, if `legend[0]` is 'group A', then the values at index 0 in each sub-array of barData should be for group A. If you are creating a single bar chart, the value for legend should be `null`.
+- **barColors**: Array of strings with the HEX code of the desired colors for the stacked bars in the bar chart. Make sure the order of the colors match the order of the legend. For example, if you wand `legend[0]` data to be represented by a green bar, then `barColors[0]` should be the HEX code for green.
+**Example for single bar chart data object**
+```
+const chartData = {
+  'barData': [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]],
+  'barLabels': ['one', 'two', 'three', 'four, 'five', 'six', 'seven', 'eight', 'nine', 'ten'],
+  'barColors': ['#000000'],
+  'legend': null
+};
+```
+**Example for stacked bar chart data object**
+```
+//Percentage of women and men in given professions//
+const chartData = {
+  'barData': [[97.5, 2.5],[83.8, 16.2], [75.6, 24.4], [61.3, 38.7], [40.4, 59.8], [27.4, 72.7], [3.5, 96.5]]
+  'barLabels': ['kindergarten teacher', 'librarian', 'flight attendant', 'accountant, 'musicians/singers, 'chiropractors, 'firefighter'],
+  'legend': ['Women', 'Men']
+  'barColors': ['#f59898', '#a8f3f7'],
+};
+```
 
 ### Options
 The options parameter is an object containing fourteen key-value pairs:
