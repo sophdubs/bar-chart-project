@@ -15,7 +15,7 @@ const findMaxValue = function(data) {
 };
 
 //Helper function to determine the max value on the Y axis.
-//If user provided tick spacing, it will be the closest multiple of the provided tick spacing greater or euqal than the max val.
+//If user provided tick spacing, it will be the closest multiple of the provided tick spacing greater than or euqal to the max val.
 //If no tick spacing is provided, the max value on the Y axis will be the Max value in the dataset.
 const findMaxHeight = function(maxValue, tickSpacing) {
   if (tickSpacing) {
@@ -25,10 +25,14 @@ const findMaxHeight = function(maxValue, tickSpacing) {
   }
 };
 
-// Fuction sets width and height of bar chart based on customized values passed in by the user.
+// Fuction sets width and height of bar chart based on customized values if they were provided by the user.
 const generateBlankGraph = function(height, width) {
-  root.style.setProperty('--height', `${height}px`);
-  root.style.setProperty('--width', `${width}px`);
+  if (height) {
+    root.style.setProperty('--height', `${height}px`);
+  }
+  if (width) {
+    root.style.setProperty('--width', `${width}px`);
+  }
 };
 
 // Function that adds ticks to the Y axis with custom spacing specified by the user.
@@ -49,8 +53,8 @@ const addCustomTicks = function(tickSpacing, maxHeight, height) {
   }
 };
 
-// Add bars to graph and customize them to user input. Bar width is id dependent on total amout of values passed in.
-// Customization include position of values within the bars, valueColour and spacing between bars
+// Add bars to graph and customize them to user input. Bar width is is dependent on total amout of values passed in.
+// Customizations include spacing between bars and color of the values for each bar.
 const addCustomBars = function(data, specs) {
   // Destructure values from specs object to easily access them
   const {height, width, maxHeight, barSpacing, valueColour}  = specs;
@@ -88,7 +92,7 @@ const addCustomBars = function(data, specs) {
   }
 };
 
-// If users prodive legend information in the data object (in the case of a stacked bar chart), this function will generate a custom legend.
+// If users prodive legend information in the data object (required in the case of a stacked bar chart), this function will generate a custom legend.
 const addCustomLegend = function(data) {
   if (data.legend) {
     const legend = data.legend;
@@ -100,8 +104,8 @@ const addCustomLegend = function(data) {
   }
 };
 
-// If user provides a title, this function will add it to the page header displayed above the bar graph.
-// Title colour and font size is customized if the user provides desired specifications.
+// If user provides a title and/or subtitle, this function will add it/them to the page header displayed above the bar graph.
+// Title and subtitle colour and font size is customized if the user provides desired specifications.
 const addCustomTitle = function(specs) {
   const {title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize} = specs;
   if (title) {
