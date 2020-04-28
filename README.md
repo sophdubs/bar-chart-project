@@ -2,7 +2,11 @@
 
  A simple API to generate a custom bar chart tailored to the user's specifications and render it on a demo page. You can create both single and stacked bar charts using this API.
 
- ![](images/stacked.png);
+ ![](images/stacked.png)
+***Demo of a stacked bar chart created with this API***
+
+ ![](images/single.png)
+ ***Demo of a single bar chart created with this API***
 
  ## Getting Started
 
