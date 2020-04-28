@@ -39,6 +39,10 @@ The chartElement argument has been handled for you and you do not need to edit t
 
 Save all your changes to the `userFile.js` file. Open the `index.html` file in your browser to view your custom bar chart on the demo page.
 
+You can see an example of the API in action by following the link to the demo page below:
+
+https://sophdubs.github.io/bar-chart-project/
+
 ## Parameters
 
 ### chartData 
