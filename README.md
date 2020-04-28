@@ -109,6 +109,7 @@ For parameters requiring HEX codes, you can follow this link to a color picker p
 https://www.google.com/search?q=color+picker 
 
 ### Element 
+The element parameter is simple the DOM element to which the demo bar chart will be rendered. As mentioned above, this has already been handled for you and there is no need for you to edit this parameter. 
 
 
 
