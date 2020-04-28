@@ -42,10 +42,18 @@ Save all your changes to the `userFile.js` file. Open the `index.html` file in y
 ## Parameters
 
 ### Data 
-Fill this out later
+The data parameter is an object containing four key-value pairs. For stacked bar charts, all four key-value pairs are required. For single bar charts, the legend value is `'null'`.
+- **barData**: Array containing sub-arrays of the data. The nested arrays are to accomodate stacked bar chart data. For stacked bar charts, please make sure that each sub array corresponds to one bar on the chart, and that their different values are in the same order in each sub array. 
+```
+  chartData = {
+    'barData': [['barAdata1, barAdata2], [barBdata1, barBdata2], [barCdata1, barCdata2]],
+    ...
+  }
+```
+
 
 ### Options
-The options parameter is an object containing sixteen key-value pairs:
+The options parameter is an object containing fourteen key-value pairs:
 - **height**: Number representing the desired height of the bar chart in pixels. If no height is provided by the user, the default height is 400px. 
 - **width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.  
 - **barSpacing**: Number representing the space between bars in pixels. If no spacing is provided by the user, a default spacing will be applied. 
