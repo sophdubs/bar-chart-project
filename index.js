@@ -57,7 +57,7 @@ const addCustomTicks = function(tickSpacing, maxHeight, height) {
 // Customizations include spacing between bars and color of the values for each bar.
 const addCustomBars = function(data, specs) {
   // Destructure values from specs object to easily access them
-  const {height, width, maxHeight, barSpacing, valueColour}  = specs;
+  const {height, width, maxHeight, barSpacing, valueColor}  = specs;
   //Creating bars in bar chart from input data
   //Setting height of bars inline based on data inputs
 
@@ -86,9 +86,9 @@ const addCustomBars = function(data, specs) {
   // Set bar spacing and bar width
   root.style.setProperty('--barWidth', `${barWidth}px`);
   root.style.setProperty('--barMargin', `${barMargin}px`);
-  // Set custom colour for bars and bar values if customization was provided
-  if (valueColour) {
-    root.style.setProperty('--valueColour', valueColour);
+  // Set custom color for bars and bar values if customization was provided
+  if (valueColor) {
+    root.style.setProperty('--valueColor', valueColor);
   }
 };
 
@@ -105,13 +105,13 @@ const addCustomLegend = function(data) {
 };
 
 // If user provides a title and/or subtitle, this function will add it/them to the page header displayed above the bar graph.
-// Title and subtitle colour and font size is customized if the user provides desired specifications.
+// Title and subtitle color and font size is customized if the user provides desired specifications.
 const addCustomTitle = function(specs) {
-  const {title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize} = specs;
+  const {title, titleColor, titleFontSize, subtitle, subtitleColor, subtitleFontSize} = specs;
   if (title) {
     $('header').append(`<h1 class="title">${title}</h1>`);
-    if (titleColour) {
-      root.style.setProperty('--titleColour', titleColour);
+    if (titleColor) {
+      root.style.setProperty('--titleColor', titleColor);
     }
     if (titleFontSize) {
       root.style.setProperty('--titleFontSize', titleFontSize);
@@ -119,8 +119,8 @@ const addCustomTitle = function(specs) {
   }
   if (subtitle) {
     $('header').append(`<h2 class="subtitle">${subtitle}</h2>`);
-    if(subtitleColour) {
-      root.style.setProperty('--subtitleColour', subtitleColour);
+    if(subtitleColor) {
+      root.style.setProperty('--subtitleColor', subtitleColor);
     }
     if (subtitleFontSize) {
       root.style.setProperty('--subtitleFontSize', subtitleFontSize);
@@ -138,16 +138,16 @@ const addCustomAxes = function(yAxis, xAxis) {
   }
 };
 
-// If user provides a custom colour for the labels, function sets the label to that colour.
-const customizeLabels = function(labelColour) {
-  if(labelColour) {
-    root.style.setProperty('--labelColour', labelColour);
+// If user provides a custom color for the labels, function sets the label to that color.
+const customizeLabels = function(labelColor) {
+  if(labelColor) {
+    root.style.setProperty('--labelColor', labelColor);
   }
 };
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing, barSpacing, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
+  const {height, width, tickSpacing, barSpacing, valueColor, title, titleColor, titleFontSize, subtitle, subtitleColor, subtitleFontSize, yAxis, xAxis, labelColor} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
   // Setting width and height of bar chart based on passed in options.
@@ -155,14 +155,14 @@ const drawBarChart = function(data, options, element){
   // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
   addCustomTicks(tickSpacing, maxHeight, height);
   // Add bars to graph and customize them to user input
-  // Customization include position of values within the bars, valueColour and spacing between bars
-  addCustomBars(data, {height, width, maxHeight, barSpacing, valueColour});
+  // Customization include position of values within the bars, valueColor and spacing between bars
+  addCustomBars(data, {height, width, maxHeight, barSpacing, valueColor});
   //Creates custom legend to identify which colors represents which data in a stacked bar chart
   addCustomLegend(data);
-  //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.
-  addCustomTitle({title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize});
+  //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colors and fonts sizes.
+  addCustomTitle({title, titleColor, titleFontSize, subtitle, subtitleColor, subtitleFontSize});
   // Adds bar chart axes if user provides them
   addCustomAxes(yAxis, xAxis);
-  // label colour can be customized if user specifies desired colour
-  customizeLabels(labelColour);
+  // label color can be customized if user specifies desired color
+  customizeLabels(labelColor);
 };

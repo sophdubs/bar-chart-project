@@ -3,12 +3,12 @@
   --width: 600px;
   --barWidth: 20px;
   --barMargin: 20px;
-  --labelColour: black;
-  --titleColour: black;
+  --labelColor: black;
+  --titleColor: black;
   --titleFontSize: 50px;
-  --valueColour: black;
+  --valueColor: black;
   --tickPixels: 0px;
-  --subtitleColour: black;
+  --subtitleColor: black;
   --subtitleFontSize: 30px;
 }
 
@@ -158,18 +158,18 @@ section {
 
 .bar-label {
   position: absolute;
-  color: var(--labelColour);
+  color: var(--labelColor);
   bottom: -40px;
 }
 
 .title {
-  color: var(--titleColour);
+  color: var(--titleColor);
   font-size: var(--titleFontSize);
   margin-bottom: 0;
 }
 
 .subtitle {
-  color: var(--subtitleColour);
+  color: var(--subtitleColor);
   font-size: var(--subtitleFontSize);
   margin-bottom: 0;
 }
@@ -182,7 +182,7 @@ section {
 }
 
 .bar:hover {
-  color: var(--valueColour);
+  color: var(--valueColor);
   z-index: 10 !important;
   background: #f3f598 !important;
 }
