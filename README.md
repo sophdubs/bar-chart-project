@@ -42,14 +42,11 @@ Save all your changes to the `userFile.js` file. Open the `index.html` file in y
 ## Parameters
 
 ### Data 
-The data parameter is an object containing four key-value pairs. For stacked bar charts, all four key-value pairs are required. For single bar charts, the legend value is `'null'`.
-- **barData**: Array containing sub-arrays of the data. The nested arrays are to accomodate stacked bar chart data. For stacked bar charts, please make sure that each sub array corresponds to one bar on the chart, and that their different values are in the same order in each sub array. 
-```
-  chartData = {
-    'barData': [['barAdata1, barAdata2], [barBdata1, barBdata2], [barCdata1, barCdata2]],
-    ...
-  }
-```
+The data parameter is an object containing four key-value pairs. For stacked bar charts, all four key-value pairs are required. For single bar charts, the legend value should be `'null'`.
+- **barData**: Array containing sub-arrays of the data. The nested arrays are to accomodate stacked bar charts which have multiple values for each bar. For single bar charts, you must still nest each bar value within its own array.  
+- **barLabels**: Array containing the labels (strings) for each bar. Make sure the order of your labels corresponds to the order of your barData. For example, `barData[0]` should be the data that corresponds to the bar labelled `barLabel[0]`.
+- **legend**: Array of strings containing the different labels for the different values in each bar of the stacked bar chart.This will be used to create a legend so the user which bar belongs to which group. Make sure the order of the data in each sub array of barData matches the order of the legend array. For example, if the `legend[0]` is for 'group A', then each value at index 0 in the sub arrays of barData should be for group A. 
+- **barColors**: Array of strings with the HEX code of the desired colors for the stacked bars in the bar chart. Make sure the order of the colors match the order of the legend. For example, if you wand `legend[0]` data to be represented by a green bar, then `barColors[0]` should be the HEX code for green'.
 
 
 ### Options
