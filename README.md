@@ -2,6 +2,8 @@
 
  A simple API to generate a custom bar chart tailored to the user's specifications and render it on a demo page. You can create both single and stacked bar charts using this API.
 
+ ![](images/stacked.png);
+
  ## Getting Started
 
  Clone this repo to your local machine from your terminal command line.
