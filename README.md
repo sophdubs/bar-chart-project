@@ -79,9 +79,10 @@ const chartData = {
 ```
 
 ### chartOptions
+The options parameter is an object containing fourteen key-value pairs:
 ![](images/stacked-with-labels.png)
 ***Example of each key-value pair in charOptions on the demo graph***
-The options parameter is an object containing fourteen key-value pairs:
+
 - **(1)height**: Number representing the desired height of the bar chart in pixels. If no height is provided by the user, the default height is 400px. 
 - **(2)width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.  
 - **(3)barSpacing**: Number representing the space between bars in pixels. If no spacing is provided by the user, a default spacing will be applied. 
@@ -90,7 +91,7 @@ The options parameter is an object containing fourteen key-value pairs:
 - **(6)title**: String of the subtitle for your bar chart. If no subtitle is provided, the bar chart will have no subtitle.
 - **(7)titleColour**: String with the HEX code of the desired color of the bar chart subtitle. If no color is specified, the default color is black.
 - **(8)titleFontSize**: Number representing the font size of the subtitle in pixels. If no font size is provided by the user, a default font size of 50px will be applied.
-- **s(9)subtitle**: String of the subtitle for your bar chart. If no subtitle is provided, the bar chart will have no subtitle.
+- **(9)subtitle**: String of the subtitle for your bar chart. If no subtitle is provided, the bar chart will have no subtitle.
 - **(10)subtitleColour**: String with the HEX code of the desired color of the bar chart subtitle. If no color is specified, the default color is black.
 - **(11)subtitleFontSize**: Number representing the font size of the subtitle in pixels. If no font size is provided by the user, a default font size of 30px will be applied. 
 - **(12)xAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
