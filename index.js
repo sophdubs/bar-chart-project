@@ -50,10 +50,10 @@ const addCustomTicks = function(tickSpacing, maxHeight, height) {
 };
 
 // Add bars to graph and customize them to user input. Bar width is id dependent on total amout of values passed in.
-// Customization include position of values within the bars, barColour, valueColour and spacing between bars
+// Customization include position of values within the bars, valueColour and spacing between bars
 const addCustomBars = function(data, specs) {
   // Destructure values from specs object to easily access them
-  const {height, width, maxHeight, barSpacing, barColour, valueColour}  = specs;
+  const {height, width, maxHeight, barSpacing, valueColour}  = specs;
   //Creating bars in bar chart from input data
   //Setting height of bars inline based on data inputs
 
@@ -119,7 +119,7 @@ const addCustomTitle = function(specs) {
       root.style.setProperty('--subtitleColour', subtitleColour);
     }
     if (subtitleFontSize) {
-      root.style.setProperty('--titleFontSize', titleFontSize);
+      root.style.setProperty('--subtitleFontSize', subtitleFontSize);
     }
   }
 };
@@ -143,7 +143,7 @@ const customizeLabels = function(labelColour) {
 
 const drawBarChart = function(data, options, element){
   // Destructuring options for use in helper functions
-  const {height, width, tickSpacing, barSpacing, barColour, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
+  const {height, width, tickSpacing, barSpacing, valueColour, title, titleColour, titleFontSize, subtitle, subtitleColour, subtitleFontSize, yAxis, xAxis, labelColour} = options;
   const maxValue = findMaxValue(data);
   const maxHeight = findMaxHeight(maxValue, tickSpacing);
   // Setting width and height of bar chart based on passed in options.
@@ -151,8 +151,8 @@ const drawBarChart = function(data, options, element){
   // Adding ticks to graph's Y axis based on custom tickSpacing passed in by user
   addCustomTicks(tickSpacing, maxHeight, height);
   // Add bars to graph and customize them to user input
-  // Customization include position of values within the bars, barColour, valueColour and spacing between bars
-  addCustomBars(data, {height, width, maxHeight, barSpacing, barColour, valueColour});
+  // Customization include position of values within the bars, valueColour and spacing between bars
+  addCustomBars(data, {height, width, maxHeight, barSpacing, valueColour});
   //Creates custom legend to identify which colors represents which data in a stacked bar chart
   addCustomLegend(data);
   //Sets title/subtitle and title/subtitle customizations if user provides title, subtitlem custom colours and fonts sizes.

@@ -47,8 +47,7 @@ Fill this out later
 ### Options
 The options parameter is an object containing sixteen key-value pairs:
 - **height**: Number representing the desired height of the bar chart in pixels. If no height is provided by the user, the default height is 400px. 
-- **width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.
-- **barColour**: String with the HEX code for desired color for the bars on the bar chart. If no color is specified, the default bar color is grey.  
+- **width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.  
 - **barSpacing**: Number representing the space between bars in pixels. If no spacing is provided by the user, a default spacing will be applied. 
 - **valueColour**: String with the HEX code of the desired color for the numeric values in the bars on the bar chart. If no color is specified, the default color is black. 
 - **labelColour**: String with the HEX code of the desired color for the labels below each bar on the X-axis. If no color is specified, the default color is black. 

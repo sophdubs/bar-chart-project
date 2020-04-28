@@ -3,7 +3,6 @@
   --width: 0px;
   --barWidth: 20px;
   --barMargin: 20px;
-  --barColour: darkgrey;
   --labelColour: black;
   --titleColour: black;
   --titleFontSize: 12px;
@@ -91,12 +90,14 @@ section {
   transform: rotate(270deg);
   height: 30px;
   margin-top: 15vh;
+  font-weight: bold;
 }
 
 .x-axis {
   margin-top: 30px;
   display: flex;
   justify-content: center;
+  font-weight: bold;
 }
 
 .legend-square {
@@ -141,7 +142,6 @@ section {
 .bar {
   position: absolute;
   width: var(--barWidth);
-  background: var(--barColour);
   float: left;
   align-self: flex-end;
   display: flex;
@@ -185,6 +185,7 @@ section {
 .subtitle {
   color: var(--subtitleColour);
   font-size: var(--subtitleFontSize);
+  margin-bottom: 0;
 }
 
 .value {
@@ -197,5 +198,5 @@ section {
 .bar:hover {
   color: var(--valueColour);
   z-index: 10 !important;
-  background: yellow !important;
+  background: #f3f598 !important;
 }
