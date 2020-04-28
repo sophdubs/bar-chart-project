@@ -45,7 +45,7 @@ The chartElement argument has been handled for you and you do not need to edit t
 
 Save all your changes to the `userFile.js` file. Open the `index.html` file in your browser to view your custom bar chart on the demo page.
 
-You can see an example of the API in action by following the link to the demo page below:
+**Note:** Although you cannot see the values of the bars in the demo images above, the values can be seen when hovering over a specific bar. You can see an example of the API in action by following the link to the demo page below:
 
 https://sophdubs.github.io/bar-chart-project/
 
@@ -80,20 +80,20 @@ const chartData = {
 
 ### chartOptions
 The options parameter is an object containing fourteen key-value pairs:
-- **height**: Number representing the desired height of the bar chart in pixels. If no height is provided by the user, the default height is 400px. 
-- **width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.  
-- **barSpacing**: Number representing the space between bars in pixels. If no spacing is provided by the user, a default spacing will be applied. 
-- **valueColour**: String with the HEX code of the desired color for the numeric values in the bars on the bar chart. If no color is specified, the default color is black. 
-- **labelColour**: String with the HEX code of the desired color for the labels below each bar on the X-axis. If no color is specified, the default color is black. 
-- **subtitle**: String of the subtitle for your bar chart. If no subtitle is provided, the bar chart will have no subtitle.
-- **titleColour**: String with the HEX code of the desired color of the bar chart subtitle. If no color is specified, the default color is black.
-- **titleFontSize**: Number representing the font size of the subtitle in pixels. If no font size is provided by the user, a default font size of 50px will be applied.
-- **subtitle**: String of the subtitle for your bar chart. If no subtitle is provided, the bar chart will have no subtitle.
-- **subtitleColour**: String with the HEX code of the desired color of the bar chart subtitle. If no color is specified, the default color is black.
-- **subtitleFontSize**: Number representing the font size of the subtitle in pixels. If no font size is provided by the user, a default font size of 30px will be applied. 
-- **xAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
-- **yAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
-- **tickSpacing**: Number representing the space between ticks on the Y-axis. If no spacing is provided by the user, no ticks will be added to the Y-axis. 
+- **(1)height**: Number representing the desired height of the bar chart in pixels. If no height is provided by the user, the default height is 400px. 
+- **(2)width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.  
+- **(3)barSpacing**: Number representing the space between bars in pixels. If no spacing is provided by the user, a default spacing will be applied. 
+- **(4)valueColour**: String with the HEX code of the desired color for the numeric values in the bars on the bar chart. If no color is specified, the default color is black. 
+- **(5)labelColour**: String with the HEX code of the desired color for the labels below each bar on the X-axis. If no color is specified, the default color is black. 
+- **(6)title**: String of the subtitle for your bar chart. If no subtitle is provided, the bar chart will have no subtitle.
+- **(7)titleColour**: String with the HEX code of the desired color of the bar chart subtitle. If no color is specified, the default color is black.
+- **(8)titleFontSize**: Number representing the font size of the subtitle in pixels. If no font size is provided by the user, a default font size of 50px will be applied.
+- **s(9)subtitle**: String of the subtitle for your bar chart. If no subtitle is provided, the bar chart will have no subtitle.
+- **(10)subtitleColour**: String with the HEX code of the desired color of the bar chart subtitle. If no color is specified, the default color is black.
+- **(11)subtitleFontSize**: Number representing the font size of the subtitle in pixels. If no font size is provided by the user, a default font size of 30px will be applied. 
+- **(12)xAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
+- **(13)yAxis**: String of the X-axis label for your bar chart. If no label is provided, the bar chart will have no X-axis label.
+- **(14)tickSpacing**: Number representing the space between ticks on the Y-axis. If no spacing is provided by the user, no ticks will be added to the Y-axis. 
 
 **Example options object**
 ```
@@ -114,6 +114,9 @@ const chartOptions = {
   tickSpacing: '100'
 };
 ```
+![](images/stacked-with-labels.png)
+***Example of each key-value pair in charOptions on the demo graph***
+
 **Note:**
 For parameters requiring HEX codes, you can follow this link to a color picker page and copy paste the HEX code for your desired color. 
 https://www.google.com/search?q=color+picker 
