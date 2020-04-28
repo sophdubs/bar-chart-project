@@ -1,4 +1,5 @@
 // Uncomment the following code to see an example of a stacked bar chart demo.
+// Make sure to comment this code out once you are ready to create and display your own custom bar chart.
 
 // const chartData = {
 //   'barData': [[987322], [226629], [197675], [162100], [157770], [152840], [110130], [90481], [87147], [82830]],

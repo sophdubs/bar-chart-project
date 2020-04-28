@@ -5,14 +5,14 @@
 // For a single bar chart example, check out the singleBarChartDemo.js file
 // If you have no customization for a field that is not required, simply leave as null and default settings will be used.
 
-const chartData = {
+const data = {
   'barData': [],
   'barLabels': [],
   'barColors': [],
   'legend': []
 };
 
-const chartOptions = {
+const options = {
   height: null,
   width: null,
   barSpacing: null,
@@ -29,9 +29,9 @@ const chartOptions = {
   tickSpacing: null
 };
 
-const chartElement = $(".bar-chart");
+const element = $(".bar-chart");
 
-drawBarChart(chartData, chartOptions, chartElement);
+// drawBarChart(data, options, element);
 
 
 

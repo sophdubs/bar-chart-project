@@ -1,6 +1,6 @@
 # Bar Chart Generator
 
- A simple API to generate a custom bar chart tailored to the user's specifications and render it on a demo page.
+ A simple API to generate a custom bar chart tailored to the user's specifications and render it on a demo page. You can create both single and stacked bar charts using this API.
 
  ## Getting Started
 
@@ -22,27 +22,27 @@ Open `userFile.js` in your favorite text editor.
 At the bottom of the file, you will see the function signature as follows: 
 
 ```
-drawBarChart(data, options, element);
+drawBarChart(chartData, chartOptions, chartElement);
 ```
 
-- The **data** parameter is the data the chart will work from. 
+- The **chartData** parameter is the data the chart will work from. 
 
-- The **options** parameter is an object which has optional customizations for the bar chart. 
+- The **chartOptions** parameter is an object which has optional customizations for the bar chart. 
 
-- The **element** parameter is a DOM element or jQuery element that the chart will get rendered into.
+- The **chartElement** parameter is a DOM element or jQuery element that the chart will get rendered into.
 
-Format your data array as specified in the section below. If you decide to rename your data array, make sure to update the function signature accordingly.
+Format your chartData as specified in the section below. If you decide to rename your chartData object, make sure to update the function signature accordingly.
 
-The options object with all the required keys is provided in the `userFile.js` file. For keys that you wish to customize, simply replace the current value with your preferred value based on the specifications in the section below. If no customization for that key is desired, simply leave the value as `'null'` and the default settings will be applied. ***Do not edit any of the provided keys or  delete any key/value pairs from the options object.***
+The chartOptions object with all the required keys is provided in the `userFile.js` file. For keys that you wish to customize, simply replace the current value with your preferred value based on the specifications in the section below. If no customization for that key is desired, simply leave the value as `'null'` and the default settings will be applied. ***Do not edit any of the provided keys or  delete any key/value pairs from the options object.***
 
-The element argument has been handled for you and you do not need to edit this parameter.
+The chartElement argument has been handled for you and you do not need to edit this parameter.
 
 Save all your changes to the `userFile.js` file. Open the `index.html` file in your browser to view your custom bar chart on the demo page.
 
 ## Parameters
 
-### Data 
-The data parameter is an object containing four key-value pairs. For stacked bar charts, all four key-value pairs are required. For single bar charts, the legend value should be `null`.
+### chartData 
+The `chartData` parameter is an object containing four key-value pairs. For stacked bar charts, all four key-value pairs are required. For single bar charts, the legend value should be `null`.
 - **barData**: Array containing sub-arrays of the data for each bar. The nested arrays are to accomodate stacked bar charts which have multiple values for each bar. For single bar charts, you must still nest each bar value within its own array.  
 - **barLabels**: Array containing the labels (strings) for each bar. Make sure the order of your labels corresponds to the order of your barData. For example, `barData[0]` should be the data that corresponds to the bar labelled `barLabel[0]`.
 - **legend**: Array of strings containing the different labels for the different values in each bar of the stacked bar chart. This will be used to create a legend so the user can determine which bar belongs to which dataset. Make sure the order of the data in each sub array of barData matches the order of the legend array. For example, if `legend[0]` is 'group A', then the values at index 0 in each sub-array of barData should be for group A. If you are creating a single bar chart, the value for legend should be `null`.
@@ -68,7 +68,7 @@ const chartData = {
 };
 ```
 
-### Options
+### chartOptions
 The options parameter is an object containing fourteen key-value pairs:
 - **height**: Number representing the desired height of the bar chart in pixels. If no height is provided by the user, the default height is 400px. 
 - **width**: Number representing the desired width of the bar chart in pixels. If no width is provided by the user, the default width is 600px.  
@@ -108,8 +108,10 @@ const chartOptions = {
 For parameters requiring HEX codes, you can follow this link to a color picker page and copy paste the HEX code for your desired color. 
 https://www.google.com/search?q=color+picker 
 
-### Element 
+### chartElement 
 The element parameter is simple the DOM element to which the demo bar chart will be rendered. As mentioned above, this has already been handled for you and there is no need for you to edit this parameter. 
+
+
 
 
 
